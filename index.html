@@ -648,6 +648,7 @@
                     }
 
                     const blobUrl = URL.createObjectURL(blob);
+                    const dataUrl = canvas.toDataURL('image/png');
                     const link = document.createElement('a');
                     link.href = blobUrl;
                     link.download = fileName;
@@ -656,18 +657,48 @@
                     link.style.left = '-9999px';
                     document.body.appendChild(link);
 
+                    const iosFallbackLink = document.createElement('a');
+                    iosFallbackLink.href = dataUrl;
+                    iosFallbackLink.download = fileName;
+                    iosFallbackLink.rel = 'noopener';
+                    iosFallbackLink.style.position = 'fixed';
+                    iosFallbackLink.style.left = '-9999px';
+                    document.body.appendChild(iosFallbackLink);
+
                     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
                     if (isIOS) {
-                        window.open(blobUrl, '_blank');
+                        try {
+                            iosFallbackLink.click();
+                        } catch (error) {}
+
+                        setTimeout(() => {
+                            try {
+                                link.click();
+                            } catch (error) {}
+
+                            try {
+                                const newWindow = window.open(dataUrl, '_blank');
+                                if (newWindow) {
+                                    newWindow.document.title = fileName;
+                                }
+                            } catch (error) {}
+                        }, 250);
                     } else {
-                        link.click();
+                        try {
+                            link.click();
+                        } catch (error) {}
                     }
 
                     setTimeout(() => {
-                        document.body.removeChild(link);
+                        if (document.body.contains(link)) {
+                            document.body.removeChild(link);
+                        }
+                        if (document.body.contains(iosFallbackLink)) {
+                            document.body.removeChild(iosFallbackLink);
+                        }
                         URL.revokeObjectURL(blobUrl);
-                    }, 1200);
+                    }, 2000);
                 }, 'image/png');
             };
             image.onerror = function() {
