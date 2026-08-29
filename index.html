@@ -211,16 +211,15 @@
                     <input type="date" name="dobAge" placeholder="Date of Birth / Age" required>
                 </div>
                 <div class="form-row">
-                    <select name="gender" required>
+                    <select name="gender" title="Gender" required>
                         <option value="">Gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Other">Other</option>
                     </select>
-                    <input type="tel" name="mobileNo" placeholder="Mobile Number*" pattern="[0-9]{10}" required>
+                    <input type="tel" name="whatsappNo" placeholder="WhatsApp Number" pattern="^[+]?[(]?[0-9]{1,4}[)]?[-\s0-9]{7,15}$" inputmode="numeric" required>
                 </div>
                 <div class="form-row">
-                    <input type="tel" name="whatsappNo" placeholder="WhatsApp Number">
                     <input type="email" name="emailId" placeholder="Email" required>
                 </div>
                 <div class="form-row">
@@ -228,7 +227,12 @@
                 </div>
                 <div class="form-row">
                     <input type="text" name="educationQualification" placeholder="Education Qualification">
-                    <input type="text" name="occupation" placeholder="Occupation">
+                    <select name="occupation" title="Occupation" required>
+                        <option value="">Occupation</option>
+                        <option value="Employee — कर्मचारी">Employee — कर्मचारी</option>
+                        <option value="Student — विद्यार्थी">Student — विद्यार्थी</option>
+                        <option value="Unemployed — बेरोज़गार">Unemployed — बेरोज़गार</option>
+                    </select>
                 </div>
                 <div class="form-row">
                     <input type="text" name="skillsTalents" placeholder="Skills / Talents">
@@ -237,17 +241,24 @@
                 <div class="form-row">
                     <textarea name="whyJoin" placeholder="Why do you want to join?" required></textarea>
                 </div>
-                <div class="form-row">
-                    <input type="file" name="passportPhoto" accept="image/*" required>
-                    <input type="text" name="emergencyContact" placeholder="Emergency Contact" required>
+                <div class="terms-row">
+                    <input type="checkbox" name="termsAccepted" id="termsAccepted">
+                    <label for="termsAccepted">I have read and agree to the <button type="button" class="terms-link" id="openTermsBtn">Terms &amp; Conditions</button> and Privacy Policy.</label>
                 </div>
-                <label class="terms-row">
-                    <input type="checkbox" name="termsAccepted" required>
-                    <span>Terms &amp; Conditions ☑️</span>
-                </label>
                 <button type="submit" class="submit-btn" data-i18n="registerNow">Register Now</button>
             </form>
         </section>
+
+        <div class="terms-modal" id="termsModal">
+            <div class="terms-modal-content">
+                <button type="button" class="close-terms" id="closeTermsBtn" aria-label="Close terms">×</button>
+                <h3>Terms &amp; Conditions</h3>
+                <div class="terms-text">
+                    <p>By registering with Sattya Vijayate Bahu Uddeshiya Seva Bhavi Mandal Sanstha, I confirm that the information provided by me is true, accurate, and complete to the best of my knowledge. I agree to follow the rules, guidelines, and code of conduct of the organization and to participate respectfully in its educational, sports, cultural, social, and community activities. I understand that registration does not guarantee participation in every program or activity and that the organization may accept, review, or reject registrations according to its policies and requirements. I agree not to misuse the organization's name, logo, resources, or platform for any unauthorized or unlawful purpose. I also consent to being contacted by the organization regarding programs, activities, announcements, and other relevant information. The organization reserves the right to update these terms and take appropriate action in case of misconduct, false information, or violation of organizational rules.</p>
+                </div>
+                <button type="button" class="btn primary accept-terms-btn" id="acceptTermsBtn">I Agree</button>
+            </div>
+        </div>
 
         <!-- Success Modal -->
         <div class="success-modal" id="successModal">
@@ -434,10 +445,15 @@
         // Registration Form Handler
         const registrationForm = document.getElementById('registrationForm');
         const successModal = document.getElementById('successModal');
+        const termsModal = document.getElementById('termsModal');
         const homeBtn = document.getElementById('homeBtn');
         const certificateBtn = document.getElementById('certificateBtn');
         const successDetails = document.getElementById('successDetails');
         const memberCount = document.getElementById('memberCount');
+        const openTermsBtn = document.getElementById('openTermsBtn');
+        const closeTermsBtn = document.getElementById('closeTermsBtn');
+        const acceptTermsBtn = document.getElementById('acceptTermsBtn');
+        const termsAccepted = document.getElementById('termsAccepted');
         const memberCountStorageKey = 'svbsm-member-count';
         const registrationHistoryStorageKey = 'svbsm-registration-history';
         const whatsappNumber = '918857061397';
@@ -456,7 +472,6 @@
                 `${index + 1}. Full Name: ${registration.fullName}`,
                 `Date of Birth / Age: ${registration.dobAge}`,
                 `Gender: ${registration.gender}`,
-                `Mobile Number: ${registration.mobileNo}`,
                 `WhatsApp Number: ${registration.whatsappNo}`,
                 `Email: ${registration.emailId}`,
                 `Full Address: ${registration.fullAddress}`,
@@ -465,22 +480,72 @@
                 `Skills / Talents: ${registration.skillsTalents}`,
                 `Interested Activities: ${registration.interestedActivities}`,
                 `Why do you want to join?: ${registration.whyJoin}`,
-                `Passport Photo: ${registration.passportPhoto}`,
-                `Emergency Contact: ${registration.emergencyContact}`,
                 `Terms & Conditions: ${registration.termsAccepted}`
             ].join('\n'))].join('\n\n');
-            window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+
+            const waUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
+            window.open(waUrl, '_blank', 'noopener,noreferrer');
         }
+
+        function showTermsModal() {
+            successModal.classList.remove('show');
+            termsModal.classList.add('show');
+            document.body.classList.add('modal-open');
+            document.documentElement.classList.add('modal-open');
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+        }
+
+        function hideTermsModal() {
+            termsModal.classList.remove('show');
+            document.body.classList.remove('modal-open');
+            document.documentElement.classList.remove('modal-open');
+            document.body.style.overflow = 'auto';
+            document.documentElement.style.overflow = 'auto';
+        }
+
+        openTermsBtn.addEventListener('click', function() {
+            showTermsModal();
+        });
+
+        closeTermsBtn.addEventListener('click', function() {
+            hideTermsModal();
+        });
+
+        acceptTermsBtn.addEventListener('click', function() {
+            termsAccepted.checked = true;
+            hideTermsModal();
+        });
+
+        termsModal.addEventListener('click', function(e) {
+            if (e.target === termsModal) {
+                hideTermsModal();
+            }
+        });
 
         registrationForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
             const formData = new FormData(registrationForm);
-            const passportFile = formData.get('passportPhoto');
-            const termsAccepted = formData.get('termsAccepted') === 'on';
+            const whatsappNo = String(formData.get('whatsappNo') || '').trim();
+            const emailId = String(formData.get('emailId') || '').trim();
+            const agreed = formData.get('termsAccepted') === 'on';
 
-            if (!termsAccepted) {
+            if (!agreed) {
                 alert('Please accept the Terms & Conditions to continue.');
+                return;
+            }
+
+            const whatsappValid = /^(?:\+?[1-9]\d{0,3}[-\s]?)?(?:\(?\d{1,4}\)?[-\s]?)?\d{7,15}$/.test(whatsappNo) && whatsappNo.replace(/\D/g, '').length >= 7 && whatsappNo.replace(/\D/g, '').length <= 15;
+            const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailId);
+
+            if (!whatsappValid) {
+                alert('Wrong WhatsApp number. Please enter a valid mobile number with at least 7 and up to 15 digits.');
+                return;
+            }
+
+            if (!emailValid) {
+                alert('Wrong email address. Please enter a valid email.');
                 return;
             }
 
@@ -488,18 +553,15 @@
                 fullName: formData.get('fullName'),
                 dobAge: formData.get('dobAge'),
                 gender: formData.get('gender'),
-                mobileNo: formData.get('mobileNo'),
-                whatsappNo: formData.get('whatsappNo') || 'Not provided',
-                emailId: formData.get('emailId'),
+                whatsappNo: whatsappNo,
+                emailId: emailId,
                 fullAddress: formData.get('fullAddress'),
                 educationQualification: formData.get('educationQualification') || 'Not provided',
                 occupation: formData.get('occupation') || 'Not provided',
                 skillsTalents: formData.get('skillsTalents') || 'Not provided',
                 interestedActivities: formData.get('interestedActivities'),
                 whyJoin: formData.get('whyJoin'),
-                passportPhoto: passportFile && passportFile.name ? passportFile.name : 'Not uploaded',
-                emergencyContact: formData.get('emergencyContact'),
-                termsAccepted: termsAccepted ? 'Accepted' : 'Not accepted'
+                termsAccepted: agreed ? 'Accepted' : 'Not accepted'
             };
 
             registeredMemberCount += 1;
@@ -513,13 +575,13 @@
         });
 
         function showSuccessModal(data) {
+            hideTermsModal();
             currentRegistration = data;
             successDetails.innerHTML = `
                 <div class="details-box">
                     <p><strong>${currentLanguage === 'hi' ? 'नाम' : 'Name'}:</strong> ${data.fullName}</p>
                     <p><strong>${currentLanguage === 'hi' ? 'जन्मतिथि / आयु' : 'DOB / Age'}:</strong> ${data.dobAge}</p>
                     <p><strong>${currentLanguage === 'hi' ? 'लिंग' : 'Gender'}:</strong> ${data.gender}</p>
-                    <p><strong>${currentLanguage === 'hi' ? 'मोबाइल' : 'Mobile'}:</strong> ${data.mobileNo}</p>
                     <p><strong>${currentLanguage === 'hi' ? 'व्हाट्सऐप' : 'WhatsApp'}:</strong> ${data.whatsappNo}</p>
                     <p><strong>${currentLanguage === 'hi' ? 'ईमेल' : 'Email'}:</strong> ${data.emailId}</p>
                     <p><strong>${currentLanguage === 'hi' ? 'पता' : 'Address'}:</strong> ${data.fullAddress}</p>
@@ -528,13 +590,13 @@
                     <p><strong>${currentLanguage === 'hi' ? 'कौशल / प्रतिभा' : 'Skills / Talents'}:</strong> ${data.skillsTalents}</p>
                     <p><strong>${currentLanguage === 'hi' ? 'रुचि' : 'Interested Activities'}:</strong> ${data.interestedActivities}</p>
                     <p><strong>${currentLanguage === 'hi' ? 'जुड़ने का कारण' : 'Why join'}:</strong> ${data.whyJoin}</p>
-                    <p><strong>${currentLanguage === 'hi' ? 'पासपोर्ट फोटो' : 'Passport Photo'}:</strong> ${data.passportPhoto}</p>
-                    <p><strong>${currentLanguage === 'hi' ? 'आपातकालीन संपर्क' : 'Emergency Contact'}:</strong> ${data.emergencyContact}</p>
                 </div>
             `;
 
             // Show modal with animation
             successModal.classList.add('show');
+            document.body.classList.add('modal-open');
+            document.documentElement.classList.add('modal-open');
             document.body.style.overflow = 'hidden';
             document.documentElement.style.overflow = 'hidden';
         }
@@ -571,17 +633,18 @@
 
         function closeSuccessModal() {
             successModal.classList.remove('show');
+            document.body.classList.remove('modal-open');
+            document.documentElement.classList.remove('modal-open');
             document.body.style.overflow = 'auto';
             document.documentElement.style.overflow = 'auto';
         }
 
         homeBtn.addEventListener('click', function() {
             closeSuccessModal();
-            
             setTimeout(() => {
                 window.location.hash = '#home';
                 window.scrollTo(0, 0);
-            }, 300);
+            }, 150);
         });
 
         // Close modal when clicking outside
