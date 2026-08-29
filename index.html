@@ -644,6 +644,15 @@
                 const dataUrl = canvas.toDataURL('image/png');
 
                 if (isIOS) {
+                    const downloadWindow = window.open('', '_blank');
+                    if (downloadWindow) {
+                        downloadWindow.document.write('<img src="' + dataUrl + '" style="max-width:100%;height:auto;" />');
+                        downloadWindow.document.title = fileName;
+                        downloadWindow.focus();
+                    } else {
+                        window.location.href = dataUrl;
+                    }
+
                     const iosLink = document.createElement('a');
                     iosLink.href = dataUrl;
                     iosLink.download = fileName;
@@ -656,11 +665,6 @@
                     try {
                         iosLink.click();
                     } catch (error) {}
-
-                    const popup = window.open(dataUrl, '_blank');
-                    if (!popup) {
-                        window.location.href = dataUrl;
-                    }
 
                     setTimeout(() => {
                         if (document.body.contains(iosLink)) {
