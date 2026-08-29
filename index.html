@@ -640,6 +640,35 @@
                 context.fillText(currentRegistration.fullName, canvas.width / 2, 724);
 
                 const fileName = `${currentRegistration.fullName.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '') || 'student'}-certificate.png`;
+                const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+                const dataUrl = canvas.toDataURL('image/png');
+
+                if (isIOS) {
+                    const iosLink = document.createElement('a');
+                    iosLink.href = dataUrl;
+                    iosLink.download = fileName;
+                    iosLink.target = '_blank';
+                    iosLink.rel = 'noopener';
+                    iosLink.style.position = 'fixed';
+                    iosLink.style.left = '-9999px';
+                    document.body.appendChild(iosLink);
+
+                    try {
+                        iosLink.click();
+                    } catch (error) {}
+
+                    const popup = window.open(dataUrl, '_blank');
+                    if (!popup) {
+                        window.location.href = dataUrl;
+                    }
+
+                    setTimeout(() => {
+                        if (document.body.contains(iosLink)) {
+                            document.body.removeChild(iosLink);
+                        }
+                    }, 1500);
+                    return;
+                }
 
                 canvas.toBlob(function(blob) {
                     if (!blob) {
@@ -648,7 +677,6 @@
                     }
 
                     const blobUrl = URL.createObjectURL(blob);
-                    const dataUrl = canvas.toDataURL('image/png');
                     const link = document.createElement('a');
                     link.href = blobUrl;
                     link.download = fileName;
@@ -657,48 +685,16 @@
                     link.style.left = '-9999px';
                     document.body.appendChild(link);
 
-                    const iosFallbackLink = document.createElement('a');
-                    iosFallbackLink.href = dataUrl;
-                    iosFallbackLink.download = fileName;
-                    iosFallbackLink.rel = 'noopener';
-                    iosFallbackLink.style.position = 'fixed';
-                    iosFallbackLink.style.left = '-9999px';
-                    document.body.appendChild(iosFallbackLink);
-
-                    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
-                    if (isIOS) {
-                        try {
-                            iosFallbackLink.click();
-                        } catch (error) {}
-
-                        setTimeout(() => {
-                            try {
-                                link.click();
-                            } catch (error) {}
-
-                            try {
-                                const newWindow = window.open(dataUrl, '_blank');
-                                if (newWindow) {
-                                    newWindow.document.title = fileName;
-                                }
-                            } catch (error) {}
-                        }, 250);
-                    } else {
-                        try {
-                            link.click();
-                        } catch (error) {}
-                    }
+                    try {
+                        link.click();
+                    } catch (error) {}
 
                     setTimeout(() => {
                         if (document.body.contains(link)) {
                             document.body.removeChild(link);
                         }
-                        if (document.body.contains(iosFallbackLink)) {
-                            document.body.removeChild(iosFallbackLink);
-                        }
                         URL.revokeObjectURL(blobUrl);
-                    }, 2000);
+                    }, 1500);
                 }, 'image/png');
             };
             image.onerror = function() {
