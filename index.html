@@ -425,8 +425,14 @@
             const items = Array.from(galleryTrack.children);
             items.forEach((item) => {
                 const clone = item.cloneNode(true);
+                clone.setAttribute('aria-hidden', 'true');
                 galleryTrack.appendChild(clone);
             });
+
+            const motionSpeed = window.innerWidth <= 640 ? 18 : 28;
+            galleryTrack.style.animationDuration = `${motionSpeed}s`;
+            galleryTrack.style.animationTimingFunction = 'linear';
+            galleryTrack.style.animationIterationCount = 'infinite';
         }
 
         const translations = {
@@ -614,16 +620,18 @@
             if (!currentRegistration) return;
 
             const image = new Image();
+            image.crossOrigin = 'anonymous';
             image.onload = function() {
                 const canvas = document.createElement('canvas');
-                canvas.width = image.naturalWidth;
-                canvas.height = image.naturalHeight;
+                canvas.width = image.naturalWidth || image.width;
+                canvas.height = image.naturalHeight || image.height;
                 const context = canvas.getContext('2d');
                 context.drawImage(image, 0, 0);
                 context.fillStyle = '#102043';
                 context.font = 'bold 34px Georgia, serif';
                 context.textAlign = 'center';
                 context.textBaseline = 'middle';
+
                 const maxWidth = 760;
                 let fontSize = 34;
                 while (context.measureText(currentRegistration.fullName).width > maxWidth && fontSize > 20) {
@@ -632,10 +640,26 @@
                 }
                 context.fillText(currentRegistration.fullName, canvas.width / 2, 724);
 
+                const fileName = `${currentRegistration.fullName.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '') || 'student'}-certificate.png`;
+                const dataUrl = canvas.toDataURL('image/png');
                 const link = document.createElement('a');
-                link.download = `${currentRegistration.fullName.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '') || 'student'}-certificate.png`;
-                link.href = canvas.toDataURL('image/png');
-                link.click();
+                link.href = dataUrl;
+                link.download = fileName;
+                link.style.display = 'none';
+                document.body.appendChild(link);
+
+                if (navigator.userAgent.match(/iPhone|iPad|iPod|Android/i)) {
+                    setTimeout(() => {
+                        link.click();
+                        setTimeout(() => document.body.removeChild(link), 1000);
+                    }, 300);
+                } else {
+                    link.click();
+                    document.body.removeChild(link);
+                }
+            };
+            image.onerror = function() {
+                alert('Certificate image could not be loaded. Please try again.');
             };
             image.src = 'images/certificate.jpg';
         });

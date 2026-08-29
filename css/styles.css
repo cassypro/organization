@@ -1225,7 +1225,7 @@ button {
     gap: 16px;
     width: max-content;
     min-width: 100%;
-    animation: gallerySlide 24s linear infinite;
+    animation: gallerySlide 28s linear infinite;
     will-change: transform;
 }
 
@@ -1251,8 +1251,8 @@ button {
 }
 
 @keyframes gallerySlide {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
 }
 
 .gallery-item:hover img {
@@ -1359,12 +1359,15 @@ textarea {
 }
 
 input[type="date"] {
-    appearance: auto;
-    -webkit-appearance: auto;
+    appearance: none;
+    -webkit-appearance: none;
     min-height: 46px;
+    height: 46px;
     padding: 8px 12px;
     line-height: 1.2;
+    font-size: 15px;
     color-scheme: dark;
+    box-sizing: border-box;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
