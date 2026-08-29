@@ -1223,14 +1223,16 @@ button {
 .gallery-track {
     display: flex;
     gap: 16px;
-    width: 200%;
+    width: max-content;
+    min-width: 100%;
     animation: gallerySlide 24s linear infinite;
     will-change: transform;
 }
 
 .gallery-item {
     overflow: hidden;
-    flex: 0 0 12.5%;
+    flex: 0 0 clamp(320px, 42vw, 520px);
+    width: clamp(320px, 42vw, 520px);
     margin: 0 16px 0 0;
     border-radius: 8px;
     background: var(--card);
@@ -2454,7 +2456,12 @@ textarea {
 @media (max-width: 640px) {
     .gallery-track {
         gap: 12px;
-        width: 800%;
+        width: max-content;
+    }
+
+    .gallery-item {
+        flex-basis: 82vw;
+        width: 82vw;
     }
 
     .section {

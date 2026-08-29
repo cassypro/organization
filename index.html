@@ -420,6 +420,15 @@
     </footer>
 
     <script>
+        const galleryTrack = document.querySelector('.gallery-track');
+        if (galleryTrack) {
+            const items = Array.from(galleryTrack.children);
+            items.forEach((item) => {
+                const clone = item.cloneNode(true);
+                galleryTrack.appendChild(clone);
+            });
+        }
+
         const translations = {
             en: {
                 navHome: 'Home', navPrograms: 'Programs', navNeuro: 'Neuro Test', navRegistration: 'Registration', navAbout: 'About',
