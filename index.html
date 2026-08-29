@@ -207,16 +207,44 @@
             </div>
             <form class="registration-form animate-up delay-1" id="registrationForm">
                 <div class="form-row">
-                    <input type="text" name="fullName" data-i18n-placeholder="fullName" placeholder="Full Name" required>
-                    <input type="number" name="age" data-i18n-placeholder="age" placeholder="Age" min="5" max="100" required>
+                    <input type="text" name="fullName" placeholder="Full Name*" required>
+                    <input type="date" name="dobAge" placeholder="Date of Birth / Age" required>
                 </div>
                 <div class="form-row">
-                    <input type="tel" name="mobileNo" data-i18n-placeholder="mobile" placeholder="Mobile Number" pattern="[0-9]{10}" required>
-                    <input type="email" name="emailId" data-i18n-placeholder="email" placeholder="Email ID" required>
+                    <select name="gender" required>
+                        <option value="">Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="tel" name="mobileNo" placeholder="Mobile Number*" pattern="[0-9]{10}" required>
                 </div>
                 <div class="form-row">
-                    <textarea name="fullAddress" data-i18n-placeholder="address" placeholder="Full Address" required></textarea>
+                    <input type="tel" name="whatsappNo" placeholder="WhatsApp Number">
+                    <input type="email" name="emailId" placeholder="Email" required>
                 </div>
+                <div class="form-row">
+                    <textarea name="fullAddress" placeholder="Full Address*" required></textarea>
+                </div>
+                <div class="form-row">
+                    <input type="text" name="educationQualification" placeholder="Education Qualification">
+                    <input type="text" name="occupation" placeholder="Occupation">
+                </div>
+                <div class="form-row">
+                    <input type="text" name="skillsTalents" placeholder="Skills / Talents">
+                    <input type="text" name="interestedActivities" placeholder="Interested Activities*" required>
+                </div>
+                <div class="form-row">
+                    <textarea name="whyJoin" placeholder="Why do you want to join?" required></textarea>
+                </div>
+                <div class="form-row">
+                    <input type="file" name="passportPhoto" accept="image/*" required>
+                    <input type="text" name="emergencyContact" placeholder="Emergency Contact" required>
+                </div>
+                <label class="terms-row">
+                    <input type="checkbox" name="termsAccepted" required>
+                    <span>Terms &amp; Conditions ☑️</span>
+                </label>
                 <button type="submit" class="submit-btn" data-i18n="registerNow">Register Now</button>
             </form>
         </section>
@@ -389,7 +417,7 @@
                 sports: 'Sports', cricket: 'Cricket', football: 'Football', athletics: 'Athletics', kabaddi: 'Kabaddi', fitness: 'Fitness activities', education: 'Education', assessments: 'IQ / Neuro assessments', careerGuidance: 'Career guidance', computerEducation: 'Computer education', digitalLiteracy: 'Digital literacy', workshops: 'Workshops', dance: 'Dance', danceWorkshop: 'Dance workshop', choreography: 'Choreography', competitions: 'Competitions', music: 'Music', singing: 'Singing', instrumental: 'Instrumental', musicWorkshops: 'Music workshops', cultural: 'Cultural', drawing: 'Drawing', art: 'Art', drama: 'Drama', essay: 'Essay', elocution: 'Elocution', culturalCompetitions: 'Cultural competitions',
                 neuroLabel: 'Neuro Care Test', neuroTitle: 'Assess growth, confidence, and core potential', neuroText: 'Personalized neuro and IQ assessments help learners understand strengths, learning style, and developmental readiness for the next stage of education and life.', learningEvaluation: 'Learning ability evaluation', neuroGuidance: 'Neuro care guidance', aptitudeInsight: 'IQ and aptitude insight', scanPortal: 'Scan to open Exam portal for Neuro Care Test and IQ Test', openPortal: 'Open Exam Portal',
                 examLabel: 'Exam', examTitle: 'Preparation with clarity and consistency', examText: 'SVBSM supports students with interview preparation, exam readiness, communication practice and career confidence.', studyDiscipline: 'Study discipline', interviewPractice: 'Interview practice', confidenceBuilding: 'Confidence building', upcomingFocus: 'Upcoming Focus', upcomingText: 'Personality development, public speaking and practical preparation for students and aspirants.',
-                registrationLabel: 'Registration', registrationTitle: 'Start your learning journey', fullName: 'Full Name', age: 'Age', mobile: 'Mobile Number', email: 'Email ID', address: 'Full Address', successTitle: 'Registration Successful!', successText: 'Welcome to your learning journey. Get ready to build amazing skills.', goHome: 'Go to Home', memberRankingLabel: 'Sanstha Member Ranking', memberRankingTitle: 'President - Tushar Ingle', memberRankingText: 'Learning Together, Growing Together, Building a Better Future Together.', memberCountLabel: 'Registered members', aboutLabel: 'About / परिचय', sanstha: '(Sanstha)', footerTagline: 'Education & Service', contact: '📞 Contact', whatsapp: 'WhatsApp', followUs: '📱 Follow Us', developer: 'Website developed by Tushar Ingle', copyright: '© 2024 Sattya Vijayate Bahu Uddeshiya Seva Bhavi Mandal. All rights reserved.'
+                registrationLabel: 'Registration', registrationTitle: 'Start your learning journey', fullName: 'Full Name', age: 'Age', mobile: 'Mobile Number', email: 'Email ID', address: 'Full Address', successTitle: 'Registration Successful!', successText: '🎉 Welcome to Our Organization! Together, let us serve our nation, create a positive impact, and grow towards a brighter future.', goHome: 'Go to Home', memberRankingLabel: 'Sanstha Member Ranking', memberRankingTitle: 'President - Tushar Ingle', memberRankingText: 'Learning Together, Growing Together, Building a Better Future Together.', memberCountLabel: 'Registered members', aboutLabel: 'About / परिचय', sanstha: '(Sanstha)', footerTagline: 'Education & Service', contact: '📞 Contact', whatsapp: 'WhatsApp', followUs: '📱 Follow Us', developer: 'Website developed by Tushar Ingle', copyright: '© 2024 Sattya Vijayate Bahu Uddeshiya Seva Bhavi Mandal. All rights reserved.'
             },
             hi: {
                 navHome: 'होम', navPrograms: 'कार्यक्रम', navNeuro: 'न्यूरो टेस्ट', navRegistration: 'पंजीकरण', navAbout: 'परिचय',
@@ -398,7 +426,7 @@
                 sports: 'खेल', cricket: 'क्रिकेट', football: 'फुटबॉल', athletics: 'एथलेटिक्स', kabaddi: 'कबड्डी', fitness: 'फिटनेस गतिविधियाँ', education: 'शिक्षा', assessments: 'IQ / न्यूरो आकलन', careerGuidance: 'करियर मार्गदर्शन', computerEducation: 'कंप्यूटर शिक्षा', digitalLiteracy: 'डिजिटल साक्षरता', workshops: 'कार्यशालाएँ', dance: 'नृत्य', danceWorkshop: 'नृत्य कार्यशाला', choreography: 'कोरियोग्राफी', competitions: 'प्रतियोगिताएँ', music: 'संगीत', singing: 'गायन', instrumental: 'वाद्य संगीत', musicWorkshops: 'संगीत कार्यशालाएँ', cultural: 'सांस्कृतिक', drawing: 'चित्रकला', art: 'कला', drama: 'नाटक', essay: 'निबंध', elocution: 'वक्तृत्व', culturalCompetitions: 'सांस्कृतिक प्रतियोगिताएँ',
                 neuroLabel: 'न्यूरो केयर टेस्ट', neuroTitle: 'विकास, आत्मविश्वास और क्षमता का आकलन करें', neuroText: 'व्यक्तिगत न्यूरो और IQ आकलन से विद्यार्थियों को अपनी खूबियों, सीखने की शैली और शिक्षा तथा जीवन के अगले चरण की तैयारी समझने में मदद मिलती है।', learningEvaluation: 'सीखने की क्षमता का मूल्यांकन', neuroGuidance: 'न्यूरो केयर मार्गदर्शन', aptitudeInsight: 'IQ और अभिरुचि की जानकारी', scanPortal: 'न्यूरो केयर टेस्ट और IQ टेस्ट पोर्टल खोलने के लिए स्कैन करें', openPortal: 'परीक्षा पोर्टल खोलें',
                 examLabel: 'परीक्षा', examTitle: 'स्पष्टता और निरंतरता के साथ तैयारी', examText: 'SVBSM विद्यार्थियों को साक्षात्कार की तैयारी, परीक्षा तैयारी, संवाद अभ्यास और करियर आत्मविश्वास में सहयोग करता है।', studyDiscipline: 'अध्ययन अनुशासन', interviewPractice: 'साक्षात्कार अभ्यास', confidenceBuilding: 'आत्मविश्वास निर्माण', upcomingFocus: 'आगामी विषय', upcomingText: 'विद्यार्थियों और अभ्यर्थियों के लिए व्यक्तित्व विकास, सार्वजनिक वक्तृत्व और व्यावहारिक तैयारी।',
-                registrationLabel: 'पंजीकरण', registrationTitle: 'अपनी सीखने की यात्रा शुरू करें', fullName: 'पूरा नाम', age: 'आयु', mobile: 'मोबाइल नंबर', email: 'ईमेल आईडी', address: 'पूरा पता', successTitle: 'पंजीकरण सफल!', successText: 'आपकी सीखने की यात्रा में आपका स्वागत है। शानदार कौशल विकसित करने के लिए तैयार हो जाइए।', goHome: 'होम पर जाएँ', memberRankingLabel: 'संस्था सदस्य रैंकिंग', memberRankingTitle: 'President - Tushar Ingle', memberRankingText: 'हर नया पंजीकरण हमारे समुदाय को एक कदम आगे बढ़ाता है।', memberCountLabel: 'पंजीकृत सदस्य', aboutLabel: 'परिचय', sanstha: '(संस्था)', footerTagline: 'शिक्षा एवं सेवा', contact: '📞 संपर्क', whatsapp: 'व्हाट्सऐप', followUs: '📱 हमें फॉलो करें', developer: 'वेबसाइट निर्माण: Tushar Ingle', copyright: '© 2024 Sattya Vijayate Bahu Uddeshiya Seva Bhavi Mandal. सर्वाधिकार सुरक्षित।'
+                registrationLabel: 'पंजीकरण', registrationTitle: 'अपनी सीखने की यात्रा शुरू करें', fullName: 'पूरा नाम', age: 'आयु', mobile: 'मोबाइल नंबर', email: 'ईमेल आईडी', address: 'पूरा पता', successTitle: 'पंजीकरण सफल!', successText: '🎉 हमारे संगठन में आपका स्वागत है! साथ मिलकर हम देश की सेवा करें, सकारात्मक प्रभाव बनाएँ और उज्ज्वल भविष्य की ओर बढ़ें।', goHome: 'होम पर जाएँ', memberRankingLabel: 'संस्था सदस्य रैंकिंग', memberRankingTitle: 'President - Tushar Ingle', memberRankingText: 'हर नया पंजीकरण हमारे समुदाय को एक कदम आगे बढ़ाता है।', memberCountLabel: 'पंजीकृत सदस्य', aboutLabel: 'परिचय', sanstha: '(संस्था)', footerTagline: 'शिक्षा एवं सेवा', contact: '📞 संपर्क', whatsapp: 'व्हाट्सऐप', followUs: '📱 हमें फॉलो करें', developer: 'वेबसाइट निर्माण: Tushar Ingle', copyright: '© 2024 Sattya Vijayate Bahu Uddeshiya Seva Bhavi Mandal. सर्वाधिकार सुरक्षित।'
             }
         };
         let currentLanguage = localStorage.getItem('svbsm-language') || 'en';
@@ -425,11 +453,21 @@
             history.push(data);
             localStorage.setItem(registrationHistoryStorageKey, JSON.stringify(history));
             const message = ['New registration history:', ...history.map((registration, index) => [
-                `${index + 1}. Name: ${registration.fullName}`,
-                `Age: ${registration.age}`,
-                `Mobile: ${registration.mobileNo}`,
+                `${index + 1}. Full Name: ${registration.fullName}`,
+                `Date of Birth / Age: ${registration.dobAge}`,
+                `Gender: ${registration.gender}`,
+                `Mobile Number: ${registration.mobileNo}`,
+                `WhatsApp Number: ${registration.whatsappNo}`,
                 `Email: ${registration.emailId}`,
-                `Address: ${registration.fullAddress}`
+                `Full Address: ${registration.fullAddress}`,
+                `Education Qualification: ${registration.educationQualification}`,
+                `Occupation: ${registration.occupation}`,
+                `Skills / Talents: ${registration.skillsTalents}`,
+                `Interested Activities: ${registration.interestedActivities}`,
+                `Why do you want to join?: ${registration.whyJoin}`,
+                `Passport Photo: ${registration.passportPhoto}`,
+                `Emergency Contact: ${registration.emergencyContact}`,
+                `Terms & Conditions: ${registration.termsAccepted}`
             ].join('\n'))].join('\n\n');
             window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
         }
@@ -437,14 +475,31 @@
         registrationForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Get form data
             const formData = new FormData(registrationForm);
+            const passportFile = formData.get('passportPhoto');
+            const termsAccepted = formData.get('termsAccepted') === 'on';
+
+            if (!termsAccepted) {
+                alert('Please accept the Terms & Conditions to continue.');
+                return;
+            }
+
             const data = {
                 fullName: formData.get('fullName'),
-                age: formData.get('age'),
+                dobAge: formData.get('dobAge'),
+                gender: formData.get('gender'),
                 mobileNo: formData.get('mobileNo'),
+                whatsappNo: formData.get('whatsappNo') || 'Not provided',
                 emailId: formData.get('emailId'),
-                fullAddress: formData.get('fullAddress')
+                fullAddress: formData.get('fullAddress'),
+                educationQualification: formData.get('educationQualification') || 'Not provided',
+                occupation: formData.get('occupation') || 'Not provided',
+                skillsTalents: formData.get('skillsTalents') || 'Not provided',
+                interestedActivities: formData.get('interestedActivities'),
+                whyJoin: formData.get('whyJoin'),
+                passportPhoto: passportFile && passportFile.name ? passportFile.name : 'Not uploaded',
+                emergencyContact: formData.get('emergencyContact'),
+                termsAccepted: termsAccepted ? 'Accepted' : 'Not accepted'
             };
 
             registeredMemberCount += 1;
@@ -452,29 +507,36 @@
             updateMemberCount();
             openRegistrationHistoryOnWhatsApp(data);
 
-            // Show success modal
             showSuccessModal(data);
 
-            // Reset form
             registrationForm.reset();
         });
 
         function showSuccessModal(data) {
             currentRegistration = data;
-            // Create success details HTML
             successDetails.innerHTML = `
                 <div class="details-box">
                     <p><strong>${currentLanguage === 'hi' ? 'नाम' : 'Name'}:</strong> ${data.fullName}</p>
-                    <p><strong>${currentLanguage === 'hi' ? 'आयु' : 'Age'}:</strong> ${data.age} ${currentLanguage === 'hi' ? 'वर्ष' : 'years'}</p>
+                    <p><strong>${currentLanguage === 'hi' ? 'जन्मतिथि / आयु' : 'DOB / Age'}:</strong> ${data.dobAge}</p>
+                    <p><strong>${currentLanguage === 'hi' ? 'लिंग' : 'Gender'}:</strong> ${data.gender}</p>
                     <p><strong>${currentLanguage === 'hi' ? 'मोबाइल' : 'Mobile'}:</strong> ${data.mobileNo}</p>
+                    <p><strong>${currentLanguage === 'hi' ? 'व्हाट्सऐप' : 'WhatsApp'}:</strong> ${data.whatsappNo}</p>
                     <p><strong>${currentLanguage === 'hi' ? 'ईमेल' : 'Email'}:</strong> ${data.emailId}</p>
                     <p><strong>${currentLanguage === 'hi' ? 'पता' : 'Address'}:</strong> ${data.fullAddress}</p>
+                    <p><strong>${currentLanguage === 'hi' ? 'शिक्षा' : 'Education'}:</strong> ${data.educationQualification}</p>
+                    <p><strong>${currentLanguage === 'hi' ? 'व्यवसाय' : 'Occupation'}:</strong> ${data.occupation}</p>
+                    <p><strong>${currentLanguage === 'hi' ? 'कौशल / प्रतिभा' : 'Skills / Talents'}:</strong> ${data.skillsTalents}</p>
+                    <p><strong>${currentLanguage === 'hi' ? 'रुचि' : 'Interested Activities'}:</strong> ${data.interestedActivities}</p>
+                    <p><strong>${currentLanguage === 'hi' ? 'जुड़ने का कारण' : 'Why join'}:</strong> ${data.whyJoin}</p>
+                    <p><strong>${currentLanguage === 'hi' ? 'पासपोर्ट फोटो' : 'Passport Photo'}:</strong> ${data.passportPhoto}</p>
+                    <p><strong>${currentLanguage === 'hi' ? 'आपातकालीन संपर्क' : 'Emergency Contact'}:</strong> ${data.emergencyContact}</p>
                 </div>
             `;
 
             // Show modal with animation
             successModal.classList.add('show');
             document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
         }
 
         certificateBtn.addEventListener('click', function() {
@@ -507,12 +569,15 @@
             image.src = 'images/certificate.jpg';
         });
 
-        homeBtn.addEventListener('click', function() {
-            // Hide modal
+        function closeSuccessModal() {
             successModal.classList.remove('show');
             document.body.style.overflow = 'auto';
+            document.documentElement.style.overflow = 'auto';
+        }
+
+        homeBtn.addEventListener('click', function() {
+            closeSuccessModal();
             
-            // Scroll to home
             setTimeout(() => {
                 window.location.hash = '#home';
                 window.scrollTo(0, 0);
@@ -522,8 +587,7 @@
         // Close modal when clicking outside
         successModal.addEventListener('click', function(e) {
             if (e.target === successModal) {
-                successModal.classList.remove('show');
-                document.body.style.overflow = 'auto';
+                closeSuccessModal();
             }
         });
 
