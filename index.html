@@ -208,7 +208,7 @@
             <form class="registration-form animate-up delay-1" id="registrationForm">
                 <div class="form-row">
                     <input type="text" name="fullName" placeholder="Full Name*" required>
-                    <input type="date" name="dobAge" placeholder="Date of Birth / Age" required>
+                    <input type="text" name="dobAge" placeholder="Date of Birth / Age" required onfocus="this.type='date'; this.setAttribute('data-has-date','true');" onblur="if(!this.value){ this.type='text'; this.removeAttribute('data-has-date'); }">
                 </div>
                 <div class="form-row">
                     <select name="gender" title="Gender" required>

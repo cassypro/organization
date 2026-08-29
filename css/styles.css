@@ -1245,12 +1245,12 @@ button {
 
 .gallery-track:hover,
 .gallery-track:focus-within {
-    animation-play-state: paused;
+    animation-play-state: running;
 }
 
 @keyframes gallerySlide {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .gallery-item:hover img {
