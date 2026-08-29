@@ -240,8 +240,39 @@
                 <div class="form-row">
                     <textarea name="fullAddress" placeholder="Full Address*" required></textarea>
                 </div>
-                <div class="form-row">
-                    <input type="text" name="educationQualification" placeholder="Education Qualification">
+                <div class="form-row education-row">
+                    <select name="educationQualification" id="educationQualification" title="Education Qualification">
+                        <option value="">Education Qualification</option>
+                        <option value="10th Pass">10th Pass</option>
+                        <option value="12th Pass">12th Pass</option>
+                        <option value="Diploma">Diploma</option>
+                        <option value="ITI / Vocational Course">ITI / Vocational Course</option>
+                        <option value="Bachelor of Arts (BA)">Bachelor of Arts (BA)</option>
+                        <option value="Bachelor of Science (BSc)">Bachelor of Science (BSc)</option>
+                        <option value="Bachelor of Commerce (BCom)">Bachelor of Commerce (BCom)</option>
+                        <option value="Bachelor of Computer Applications (BCA)">Bachelor of Computer Applications (BCA)</option>
+                        <option value="Bachelor of Engineering (BE / BTech)">Bachelor of Engineering (BE / BTech)</option>
+                        <option value="Bachelor of Pharmacy (BPharm)">Bachelor of Pharmacy (BPharm)</option>
+                        <option value="Bachelor of Business Administration (BBA)">Bachelor of Business Administration (BBA)</option>
+                        <option value="Bachelor of Medicine and Surgery (MBBS)">Bachelor of Medicine and Surgery (MBBS)</option>
+                        <option value="Bachelor of Dental Surgery (BDS)">Bachelor of Dental Surgery (BDS)</option>
+                        <option value="Bachelor of Ayurvedic Medicine (BAMS)">Bachelor of Ayurvedic Medicine (BAMS)</option>
+                        <option value="Bachelor of Homeopathic Medicine (BHMS)">Bachelor of Homeopathic Medicine (BHMS)</option>
+                        <option value="Bachelor of Law (LLB)">Bachelor of Law (LLB)</option>
+                        <option value="Chartered Accountant (CA)">Chartered Accountant (CA)</option>
+                        <option value="Company Secretary (CS)">Company Secretary (CS)</option>
+                        <option value="Master of Arts (MA)">Master of Arts (MA)</option>
+                        <option value="Master of Science (MSc)">Master of Science (MSc)</option>
+                        <option value="Master of Commerce (MCom)">Master of Commerce (MCom)</option>
+                        <option value="Master of Computer Applications (MCA)">Master of Computer Applications (MCA)</option>
+                        <option value="Master of Engineering / Technology (ME / MTech)">Master of Engineering / Technology (ME / MTech)</option>
+                        <option value="Master of Pharmacy (MPharm)">Master of Pharmacy (MPharm)</option>
+                        <option value="Master of Business Administration (MBA)">Master of Business Administration (MBA)</option>
+                        <option value="Post Graduation (General)">Post Graduation (General)</option>
+                        <option value="Doctor of Philosophy (PhD)">Doctor of Philosophy (PhD)</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="text" name="educationQualificationOther" id="educationQualificationOther" placeholder="Specify if Other" style="display:none;">
                     <select name="occupation" title="Occupation" required>
                         <option value="">Occupation</option>
                         <option value="Employee — कर्मचारी">Employee — कर्मचारी</option>
@@ -250,8 +281,22 @@
                     </select>
                 </div>
                 <div class="form-row">
-                    <input type="text" name="skillsTalents" placeholder="Skills / Talents">
-                    <input type="text" name="interestedActivities" placeholder="Interested Activities*" required>
+                    <select name="interestedActivities" id="interestedActivities" title="Interested Activities" required>
+                        <option value="">Interested Activities*</option>
+                        <option value="Dance">Dance</option>
+                        <option value="Music">Music</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Art & Drawing">Art & Drawing</option>
+                        <option value="Public Speaking">Public Speaking</option>
+                        <option value="Personality Development">Personality Development</option>
+                        <option value="Photography">Photography</option>
+                        <option value="Education / Academic Support">Education / Academic Support</option>
+                        <option value="Career Guidance">Career Guidance</option>
+                        <option value="Fitness & Wellness">Fitness & Wellness</option>
+                        <option value="Social Service">Social Service</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="text" name="interestedActivitiesOther" id="interestedActivitiesOther" placeholder="Specify if Other" style="display:none;">
                 </div>
                 <div class="form-row">
                     <textarea name="whyJoin" placeholder="Why do you want to join?" required></textarea>
@@ -284,6 +329,9 @@
                 <h2 data-i18n="successTitle">Registration Successful!</h2>
                 <div class="success-details" id="successDetails"></div>
                 <p data-i18n="successText">Welcome to your learning journey. Get ready to build amazing skills.</p>
+                <p class="whatsapp-required-note" data-i18n="whatsappRequiredText">Please send your registration details on WhatsApp to complete the process.</p>
+                <button class="btn primary" id="sendWhatsAppBtn" type="button" data-i18n="sendOnWhatsApp">Send on WhatsApp</button>
+                <p class="return-note" data-i18n="returnDownloadText">After sending, return to the website and download your certificate.</p>
                 <button class="btn certificate-btn" id="certificateBtn" type="button" data-i18n="downloadCertificate"><i class="fa-solid fa-download"></i> Download Certificate</button>
                 <button class="btn primary" id="homeBtn" data-i18n="goHome">Go to Home</button>
             </div>
@@ -300,9 +348,10 @@
         <div class="gallery-grid">
             <div class="gallery-track">
                 <figure class="gallery-item"><img src="images/ti talent.jpg" alt="Students participating in a Sanstha event"><figcaption data-i18n="galleryCaption1">Learning together</figcaption></figure>
-                <figure class="gallery-item"><img src="images/dance.jpg" alt="Dance activity at the Sanstha"><figcaption data-i18n="galleryCaption2">Dance and expression</figcaption></figure>
+                <figure class="gallery-item"><img src="images/dance.jpg" alt="Dance activity at the Sanstha"><figcaption data-i18n="galleryCaption2">Personality Development</figcaption></figure>
                 <figure class="gallery-item"><img src="images/bijli ghar yojna.jpeg" alt="Student participating in martial arts training"><figcaption data-i18n="galleryCaption3">Solar Plant Event</figcaption></figure>
                 <figure class="gallery-item"><img src="images/comunity.jpeg" alt="Students at a community program"><figcaption data-i18n="galleryCaption4">Community participation</figcaption></figure>
+                <figure class="gallery-item"><img src="images/photography.jpg" alt="Government photography competition at district level"><figcaption>Central Government Photography Competition District Level</figcaption></figure>
                 <figure class="gallery-item" aria-hidden="true"><img src="images/students learning.jpg" alt=""><figcaption data-i18n="galleryCaption1">Learning together</figcaption></figure>
                
                 <figure class="gallery-item" aria-hidden="true"><img src="images/teaching.jpg" alt=""><figcaption data-i18n="galleryCaption3">PM SURYA GHAR: MUFT BIJLI YOJANA TRAINING & CAPACITY BUILDING</figcaption></figure>
@@ -437,42 +486,135 @@
     <script>
         const galleryTrack = document.querySelector('.gallery-track');
         if (galleryTrack) {
-            const items = Array.from(galleryTrack.children);
-            items.forEach((item) => {
+            const originalItems = Array.from(galleryTrack.children);
+            originalItems.forEach((item) => {
                 const clone = item.cloneNode(true);
                 clone.setAttribute('aria-hidden', 'true');
                 galleryTrack.appendChild(clone);
             });
 
-            const motionSpeed = window.innerWidth <= 640 ? 20 : 28;
-            galleryTrack.style.animation = `gallerySlide ${motionSpeed}s linear infinite`;
-            galleryTrack.style.webkitAnimation = `gallerySlide ${motionSpeed}s linear infinite`;
+            const getGap = () => parseFloat(getComputedStyle(galleryTrack).columnGap || getComputedStyle(galleryTrack).gap || 16);
+
+            const getSingleSetWidth = () => {
+                const gap = getGap();
+                const totalWidth = originalItems.reduce((sum, item) => sum + item.getBoundingClientRect().width, 0);
+                return totalWidth + (Math.max(originalItems.length - 1, 0) * gap);
+            };
+
+            const getCycleWidth = () => getSingleSetWidth() + getGap();
+
+            let lastTime = 0;
+            let currentX = 0;
+            let isPaused = false;
+            let lastPointerDown = false;
+
+            const pauseGallery = () => {
+                isPaused = true;
+                galleryTrack.classList.add('is-paused');
+            };
+
+            const resumeGallery = () => {
+                isPaused = false;
+                galleryTrack.classList.remove('is-paused');
+                lastTime = 0;
+            };
+
+            const renderGallery = (timestamp) => {
+                const cycleWidth = getCycleWidth();
+                if (cycleWidth <= 0) {
+                    requestAnimationFrame(renderGallery);
+                    return;
+                }
+
+                if (!lastTime) {
+                    lastTime = timestamp;
+                }
+
+                if (!isPaused) {
+                    const speed = window.innerWidth <= 640 ? 0.18 : 0.26;
+                    const elapsed = timestamp - lastTime;
+                    currentX -= elapsed * speed;
+                    while (currentX <= -cycleWidth) {
+                        currentX += cycleWidth;
+                    }
+                    while (currentX > 0) {
+                        currentX -= cycleWidth;
+                    }
+                    galleryTrack.style.transform = `translate3d(${currentX}px, 0, 0)`;
+                }
+
+                lastTime = timestamp;
+                requestAnimationFrame(renderGallery);
+            };
+
+            galleryTrack.addEventListener('pointerdown', () => {
+                lastPointerDown = true;
+                pauseGallery();
+            });
+
+            galleryTrack.addEventListener('pointerup', () => {
+                if (lastPointerDown) {
+                    lastPointerDown = false;
+                    resumeGallery();
+                }
+            });
+
+            galleryTrack.addEventListener('pointerleave', () => {
+                if (!lastPointerDown) {
+                    resumeGallery();
+                }
+            });
+
+            galleryTrack.addEventListener('pointercancel', () => {
+                lastPointerDown = false;
+                resumeGallery();
+            });
+
+            galleryTrack.addEventListener('touchend', () => {
+                lastPointerDown = false;
+                resumeGallery();
+            }, { passive: true });
+
+            galleryTrack.style.animation = 'none';
+            galleryTrack.style.webkitAnimation = 'none';
+            galleryTrack.style.transform = 'translate3d(0, 0, 0)';
+            requestAnimationFrame(renderGallery);
+
+            window.addEventListener('resize', () => {
+                lastTime = 0;
+                currentX = 0;
+                galleryTrack.style.transform = 'translate3d(0, 0, 0)';
+            });
         }
 
         const translations = {
             en: {
                 navHome: 'Home', navPrograms: 'Programs', navNeuro: 'Neuro Test', navRegistration: 'Registration', navAbout: 'About',
                 heroTitle: 'Build skills, confidence, creativity and career discipline.', heroText: 'Learn dance, martial arts, meditation, photography, personality development and exam preparation with focused guidance.',
-                registerNow: 'Register Now', viewServices: 'View Services', programsLabel: 'Programs', programsTitle: 'Learning journeys designed for every passion and future', programValues: 'Education • Skills • Art • Sports • Values • Social Development', programQuote: '“Opportunity for talent, direction through education and a path to social development.”', activitiesLabel: 'Our Activities', activitiesTitle: 'Learning, expression and community in action', activityEducation: 'Education Programs', activitySports: 'Sports Activities', activityDance: 'Dance & Music', activityCultural: 'Cultural Activities', activityAssessment: 'Student Assessment', activitySkills: 'Skill Development', activitySocial: 'Social Activities', activityTalent: 'Talent Development', galleryLabel: 'Events / Gallery', galleryTitle: 'Moments from our programs and events', galleryText: "Photos from the Sanstha's educational, cultural, sports and talent development activities.", galleryCaption1: 'Learning together', galleryCaption2: 'Dance and expression', galleryCaption3: 'Confidence through activity', galleryCaption4: 'Community participation', joinLabel: 'Join / Registration', joinTitle: 'Join us and contribute to the development of society and students.', joinButton: 'Join Us',
+                registerNow: 'Register Now', viewServices: 'View Services', programsLabel: 'Programs', programsTitle: 'Learning journeys designed for every passion and future', programValues: 'Education • Skills • Art • Sports • Values • Social Development', programQuote: '“Opportunity for talent, direction through education and a path to social development.”', activitiesLabel: 'Our Activities', activitiesTitle: 'Learning, expression and community in action', activityEducation: 'Education Programs', activitySports: 'Sports Activities', activityDance: 'Dance & Music', activityCultural: 'Cultural Activities', activityAssessment: 'Student Assessment', activitySkills: 'Skill Development', activitySocial: 'Social Activities', activityTalent: 'Talent Development', galleryLabel: 'Events / Gallery', galleryTitle: 'Moments from our programs and events', galleryText: "Photos from the Sanstha's educational, cultural, sports and talent development activities.", galleryCaption1: 'Learning together', galleryCaption2: 'Personality Development', galleryCaption3: 'Confidence through activity', galleryCaption4: 'Community participation', joinLabel: 'Join / Registration', joinTitle: 'Join us and contribute to the development of society and students.', joinButton: 'Join Us',
                 sports: 'Sports', cricket: 'Cricket', football: 'Football', athletics: 'Athletics', kabaddi: 'Kabaddi', fitness: 'Fitness activities', education: 'Education', assessments: 'IQ / Neuro assessments', careerGuidance: 'Career guidance', computerEducation: 'Computer education', digitalLiteracy: 'Digital literacy', workshops: 'Workshops', dance: 'Dance', danceWorkshop: 'Dance workshop', choreography: 'Choreography', competitions: 'Competitions', music: 'Music', singing: 'Singing', instrumental: 'Instrumental', musicWorkshops: 'Music workshops', cultural: 'Cultural', drawing: 'Drawing', art: 'Art', drama: 'Drama', essay: 'Essay', elocution: 'Elocution', culturalCompetitions: 'Cultural competitions',
                 neuroLabel: 'Neuro Care Test', neuroTitle: 'Assess growth, confidence, and core potential', neuroText: 'Personalized neuro and IQ assessments help learners understand strengths, learning style, and developmental readiness for the next stage of education and life.', learningEvaluation: 'Learning ability evaluation', neuroGuidance: 'Neuro care guidance', aptitudeInsight: 'IQ and aptitude insight', scanPortal: 'Scan to open Exam portal for Neuro Care Test and IQ Test', openPortal: 'Open Exam Portal',
                 examLabel: 'Exam', examTitle: 'Preparation with clarity and consistency', examText: 'SVBSM supports students with interview preparation, exam readiness, communication practice and career confidence.', studyDiscipline: 'Study discipline', interviewPractice: 'Interview practice', confidenceBuilding: 'Confidence building', upcomingFocus: 'Upcoming Focus', upcomingText: 'Personality development, public speaking and practical preparation for students and aspirants.',
-                registrationLabel: 'Registration', registrationTitle: 'Start your learning journey', fullName: 'Full Name', age: 'Age', mobile: 'Mobile Number', email: 'Email ID', address: 'Full Address', successTitle: 'Registration Successful!', successText: '🎉 Welcome to Our Organization! Together, let us serve our nation, create a positive impact, and grow towards a brighter future.', goHome: 'Go to Home', memberRankingLabel: 'Sanstha Member Ranking', memberRankingTitle: 'President - Tushar Ingle', memberRankingText: 'Learning Together, Growing Together, Building a Better Future Together.', memberCountLabel: 'Registered members', aboutLabel: 'About / परिचय', sanstha: '(Sanstha)', footerTagline: 'Education & Service', contact: '📞 Contact', whatsapp: 'WhatsApp', followUs: '📱 Follow Us', developer: 'Website developed by Tushar Ingle', copyright: '© 2024 Sattya Vijayate Bahu Uddeshiya Seva Bhavi Mandal. All rights reserved.'
+                registrationLabel: 'Registration', registrationTitle: 'Start your learning journey', fullName: 'Full Name', age: 'Age', mobile: 'Mobile Number', email: 'Email ID', address: 'Full Address', successTitle: 'Registration Successful!', successText: '🎉 Welcome to Our Organization! Together, let us serve our nation, create a positive impact, and grow towards a brighter future.', whatsappRequiredText: 'Your registration has been submitted. Please send your details on WhatsApp to complete the process.', sendOnWhatsApp: 'Send on WhatsApp', returnDownloadText: 'After sending, return to the website and download your certificate.', goHome: 'Go to Home', memberRankingLabel: 'Sanstha Member Ranking', memberRankingTitle: 'President - Tushar Ingle', memberRankingText: 'Learning Together, Growing Together, Building a Better Future Together.', memberCountLabel: 'Registered members', aboutLabel: 'About / परिचय', sanstha: '(Sanstha)', footerTagline: 'Education & Service', contact: '📞 Contact', whatsapp: 'WhatsApp', followUs: '📱 Follow Us', developer: 'Website developed by Tushar Ingle', copyright: '© 2024 Sattya Vijayate Bahu Uddeshiya Seva Bhavi Mandal. All rights reserved.'
             },
             hi: {
                 navHome: 'होम', navPrograms: 'कार्यक्रम', navNeuro: 'न्यूरो टेस्ट', navRegistration: 'पंजीकरण', navAbout: 'परिचय',
                 heroTitle: 'कौशल, आत्मविश्वास, रचनात्मकता और करियर अनुशासन विकसित करें।', heroText: 'केंद्रित मार्गदर्शन के साथ नृत्य, मार्शल आर्ट्स, ध्यान, फोटोग्राफी, व्यक्तित्व विकास और परीक्षा की तैयारी सीखें।',
-                registerNow: 'अभी पंजीकरण करें', viewServices: 'सेवाएँ देखें', programsLabel: 'कार्यक्रम', programsTitle: 'हर रुचि और भविष्य के लिए सीखने की यात्राएँ', programValues: 'शिक्षा • कौशल • कला • खेल • संस्कार • सामाजिक विकास', programQuote: '“प्रतिभा को अवसर, शिक्षा को दिशा और समाज को विकास की राह।”', activitiesLabel: 'हमारी गतिविधियाँ', activitiesTitle: 'सीखना, अभिव्यक्ति और समाज सेवा का संगम', activityEducation: 'शैक्षणिक कार्यक्रम', activitySports: 'खेल गतिविधियाँ', activityDance: 'नृत्य एवं संगीत', activityCultural: 'सांस्कृतिक गतिविधियाँ', activityAssessment: 'विद्यार्थी आकलन', activitySkills: 'कौशल विकास', activitySocial: 'सामाजिक गतिविधियाँ', activityTalent: 'प्रतिभा विकास', galleryLabel: 'कार्यक्रम / गैलरी', galleryTitle: 'हमारे कार्यक्रमों और आयोजनों की झलकियाँ', galleryText: 'संस्था की शैक्षणिक, सांस्कृतिक, खेल और प्रतिभा विकास गतिविधियों के photos.', galleryCaption1: 'साथ मिलकर सीखना', galleryCaption2: 'नृत्य और अभिव्यक्ति', galleryCaption3: 'गतिविधियों से आत्मविश्वास', galleryCaption4: 'सामुदायिक सहभागिता', joinLabel: 'जुड़ें / पंजीकरण', joinTitle: 'आप भी हमारे साथ जुड़कर समाज और विद्यार्थियों के विकास में योगदान दें।', joinButton: 'हमसे जुड़ें',
+                registerNow: 'अभी पंजीकरण करें', viewServices: 'सेवाएँ देखें', programsLabel: 'कार्यक्रम', programsTitle: 'हर रुचि और भविष्य के लिए सीखने की यात्राएँ', programValues: 'शिक्षा • कौशल • कला • खेल • संस्कार • सामाजिक विकास', programQuote: '“प्रतिभा को अवसर, शिक्षा को दिशा और समाज को विकास की राह。”', activitiesLabel: 'हमारी गतिविधियाँ', activitiesTitle: 'सीखना, अभिव्यक्ति और समाज सेवा का संगम', activityEducation: 'शैक्षणिक कार्यक्रम', activitySports: 'खेल गतिविधियाँ', activityDance: 'नृत्य एवं संगीत', activityCultural: 'सांस्कृतिक गतिविधियाँ', activityAssessment: 'विद्यार्थी आकलन', activitySkills: 'कौशल विकास', activitySocial: 'सामाजिक गतिविधियाँ', activityTalent: 'प्रतिभा विकास', galleryLabel: 'कार्यक्रम / गैलरी', galleryTitle: 'हमारे कार्यक्रमों और आयोजनों की झलकियाँ', galleryText: 'संस्था की शैक्षणिक, सांस्कृतिक, खेल और प्रतिभा विकास गतिविधियों के photos.', galleryCaption1: 'साथ मिलकर सीखना', galleryCaption2: 'व्यक्तित्व विकास', galleryCaption3: 'गतिविधियों से आत्मविश्वास', galleryCaption4: 'सामुदायिक सहभागिता', joinLabel: 'जुड़ें / पंजीकरण', joinTitle: 'आप भी हमारे साथ जुड़कर समाज और विद्यार्थियों के विकास में योगदान दें।', joinButton: 'हमसे जुड़ें',
                 sports: 'खेल', cricket: 'क्रिकेट', football: 'फुटबॉल', athletics: 'एथलेटिक्स', kabaddi: 'कबड्डी', fitness: 'फिटनेस गतिविधियाँ', education: 'शिक्षा', assessments: 'IQ / न्यूरो आकलन', careerGuidance: 'करियर मार्गदर्शन', computerEducation: 'कंप्यूटर शिक्षा', digitalLiteracy: 'डिजिटल साक्षरता', workshops: 'कार्यशालाएँ', dance: 'नृत्य', danceWorkshop: 'नृत्य कार्यशाला', choreography: 'कोरियोग्राफी', competitions: 'प्रतियोगिताएँ', music: 'संगीत', singing: 'गायन', instrumental: 'वाद्य संगीत', musicWorkshops: 'संगीत कार्यशालाएँ', cultural: 'सांस्कृतिक', drawing: 'चित्रकला', art: 'कला', drama: 'नाटक', essay: 'निबंध', elocution: 'वक्तृत्व', culturalCompetitions: 'सांस्कृतिक प्रतियोगिताएँ',
                 neuroLabel: 'न्यूरो केयर टेस्ट', neuroTitle: 'विकास, आत्मविश्वास और क्षमता का आकलन करें', neuroText: 'व्यक्तिगत न्यूरो और IQ आकलन से विद्यार्थियों को अपनी खूबियों, सीखने की शैली और शिक्षा तथा जीवन के अगले चरण की तैयारी समझने में मदद मिलती है।', learningEvaluation: 'सीखने की क्षमता का मूल्यांकन', neuroGuidance: 'न्यूरो केयर मार्गदर्शन', aptitudeInsight: 'IQ और अभिरुचि की जानकारी', scanPortal: 'न्यूरो केयर टेस्ट और IQ टेस्ट पोर्टल खोलने के लिए स्कैन करें', openPortal: 'परीक्षा पोर्टल खोलें',
                 examLabel: 'परीक्षा', examTitle: 'स्पष्टता और निरंतरता के साथ तैयारी', examText: 'SVBSM विद्यार्थियों को साक्षात्कार की तैयारी, परीक्षा तैयारी, संवाद अभ्यास और करियर आत्मविश्वास में सहयोग करता है।', studyDiscipline: 'अध्ययन अनुशासन', interviewPractice: 'साक्षात्कार अभ्यास', confidenceBuilding: 'आत्मविश्वास निर्माण', upcomingFocus: 'आगामी विषय', upcomingText: 'विद्यार्थियों और अभ्यर्थियों के लिए व्यक्तित्व विकास, सार्वजनिक वक्तृत्व और व्यावहारिक तैयारी।',
-                registrationLabel: 'पंजीकरण', registrationTitle: 'अपनी सीखने की यात्रा शुरू करें', fullName: 'पूरा नाम', age: 'आयु', mobile: 'मोबाइल नंबर', email: 'ईमेल आईडी', address: 'पूरा पता', successTitle: 'पंजीकरण सफल!', successText: '🎉 हमारे संगठन में आपका स्वागत है! साथ मिलकर हम देश की सेवा करें, सकारात्मक प्रभाव बनाएँ और उज्ज्वल भविष्य की ओर बढ़ें।', goHome: 'होम पर जाएँ', memberRankingLabel: 'संस्था सदस्य रैंकिंग', memberRankingTitle: 'President - Tushar Ingle', memberRankingText: 'हर नया पंजीकरण हमारे समुदाय को एक कदम आगे बढ़ाता है।', memberCountLabel: 'पंजीकृत सदस्य', aboutLabel: 'परिचय', sanstha: '(संस्था)', footerTagline: 'शिक्षा एवं सेवा', contact: '📞 संपर्क', whatsapp: 'व्हाट्सऐप', followUs: '📱 हमें फॉलो करें', developer: 'वेबसाइट निर्माण: Tushar Ingle', copyright: '© 2024 Sattya Vijayate Bahu Uddeshiya Seva Bhavi Mandal. सर्वाधिकार सुरक्षित।'
+                registrationLabel: 'पंजीकरण', registrationTitle: 'अपनी सीखने की यात्रा शुरू करें', fullName: 'पूरा नाम', age: 'आयु', mobile: 'मोबाइल नंबर', email: 'ईमेल आईडी', address: 'पूरा पता', successTitle: 'पंजीकरण सफल!', successText: '🎉 हमारे संगठन में आपका स्वागत है! साथ मिलकर हम देश की सेवा करें, सकारात्मक प्रभाव बनाएँ और उज्ज्वल भविष्य की ओर बढ़ें।', whatsappRequiredText: 'आपका पंजीकरण हो चुका है। प्रक्रिया पूरी करने के लिए अपने विवरण WhatsApp पर भेजें।', sendOnWhatsApp: 'WhatsApp पर भेजें', returnDownloadText: 'भेजने के बाद वेबसाइट पर वापस जाएँ और अपना certificate डाउनलोड करें।', goHome: 'होम पर जाएँ', memberRankingLabel: 'संस्था सदस्य रैंकिंग', memberRankingTitle: 'President - Tushar Ingle', memberRankingText: 'हर नया पंजीकरण हमारे समुदाय को एक कदम आगे बढ़ाता है।', memberCountLabel: 'पंजीकृत सदस्य', aboutLabel: 'परिचय', sanstha: '(संस्था)', footerTagline: 'शिक्षा एवं सेवा', contact: '📞 संपर्क', whatsapp: 'व्हाट्सऐप', followUs: '📱 हमें फॉलो करें', developer: 'वेबसाइट निर्माण: Tushar Ingle', copyright: '© 2024 Sattya Vijayate Bahu Uddeshiya Seva Bhavi Mandal. सर्वाधिकार सुरक्षित।'
             }
         };
         let currentLanguage = localStorage.getItem('svbsm-language') || 'en';
 
         // Registration Form Handler
         const registrationForm = document.getElementById('registrationForm');
+        const educationQualificationSelect = document.getElementById('educationQualification');
+        const educationQualificationOther = document.getElementById('educationQualificationOther');
+        const interestedActivitiesSelect = document.getElementById('interestedActivities');
+        const interestedActivitiesOther = document.getElementById('interestedActivitiesOther');
         const successModal = document.getElementById('successModal');
         const termsModal = document.getElementById('termsModal');
         const homeBtn = document.getElementById('homeBtn');
@@ -483,6 +625,36 @@
         const closeTermsBtn = document.getElementById('closeTermsBtn');
         const acceptTermsBtn = document.getElementById('acceptTermsBtn');
         const termsAccepted = document.getElementById('termsAccepted');
+
+        function updateEducationQualificationField() {
+            const isOther = educationQualificationSelect && educationQualificationSelect.value === 'Other';
+            if (educationQualificationOther) {
+                educationQualificationOther.style.display = isOther ? 'block' : 'none';
+                educationQualificationOther.required = isOther;
+                if (!isOther) {
+                    educationQualificationOther.value = '';
+                }
+            }
+        }
+
+        function updateInterestedActivitiesField() {
+            const isOther = interestedActivitiesSelect && interestedActivitiesSelect.value === 'Other';
+            if (interestedActivitiesOther) {
+                interestedActivitiesOther.style.display = isOther ? 'block' : 'none';
+                interestedActivitiesOther.required = isOther;
+                if (!isOther) {
+                    interestedActivitiesOther.value = '';
+                }
+            }
+        }
+
+        if (educationQualificationSelect) {
+            educationQualificationSelect.addEventListener('change', updateEducationQualificationField);
+        }
+
+        if (interestedActivitiesSelect) {
+            interestedActivitiesSelect.addEventListener('change', updateInterestedActivitiesField);
+        }
         const memberCountStorageKey = 'svbsm-member-count';
         const registrationHistoryStorageKey = 'svbsm-registration-history';
         const whatsappNumber = '918857061397';
@@ -514,6 +686,14 @@
 
             const waUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
             window.open(waUrl, '_blank', 'noopener,noreferrer');
+        }
+
+        const sendWhatsAppBtn = document.getElementById('sendWhatsAppBtn');
+        if (sendWhatsAppBtn) {
+            sendWhatsAppBtn.addEventListener('click', function() {
+                if (!currentRegistration) return;
+                openRegistrationHistoryOnWhatsApp(currentRegistration);
+            });
         }
 
         function showTermsModal() {
@@ -578,6 +758,14 @@
                 return;
             }
 
+            const selectedQualification = formData.get('educationQualification') || '';
+            const customQualification = String(formData.get('educationQualificationOther') || '').trim();
+            const educationQualification = selectedQualification === 'Other' && customQualification ? customQualification : (selectedQualification || 'Not provided');
+
+            const selectedInterest = formData.get('interestedActivities') || '';
+            const customInterest = String(formData.get('interestedActivitiesOther') || '').trim();
+            const interestedActivities = selectedInterest === 'Other' && customInterest ? customInterest : (selectedInterest || 'Not provided');
+
             const data = {
                 fullName: formData.get('fullName'),
                 dobAge: formData.get('dobAge'),
@@ -585,10 +773,10 @@
                 whatsappNo: whatsappNo,
                 emailId: emailId,
                 fullAddress: formData.get('fullAddress'),
-                educationQualification: formData.get('educationQualification') || 'Not provided',
+                educationQualification: educationQualification,
                 occupation: formData.get('occupation') || 'Not provided',
-                skillsTalents: formData.get('skillsTalents') || 'Not provided',
-                interestedActivities: formData.get('interestedActivities'),
+                skillsTalents: 'Not provided',
+                interestedActivities: interestedActivities,
                 whyJoin: formData.get('whyJoin'),
                 termsAccepted: agreed ? 'Accepted' : 'Not accepted'
             };
@@ -596,7 +784,7 @@
             registeredMemberCount += 1;
             localStorage.setItem(memberCountStorageKey, String(registeredMemberCount));
             updateMemberCount();
-            openRegistrationHistoryOnWhatsApp(data);
+            currentRegistration = data;
 
             showSuccessModal(data);
 

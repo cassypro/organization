@@ -1225,7 +1225,6 @@ button {
     gap: 16px;
     width: max-content;
     min-width: 100%;
-    animation: gallerySlide 28s linear infinite;
     will-change: transform;
 }
 
@@ -1233,7 +1232,7 @@ button {
     overflow: hidden;
     flex: 0 0 clamp(320px, 42vw, 520px);
     width: clamp(320px, 42vw, 520px);
-    margin: 0 16px 0 0;
+    margin: 0;
     border-radius: 8px;
     background: var(--card);
 }
@@ -1248,11 +1247,6 @@ button {
 .gallery-track:hover,
 .gallery-track:focus-within {
     animation-play-state: running;
-}
-
-@keyframes gallerySlide {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(-50%, 0, 0); }
 }
 
 .gallery-item:hover img {
