@@ -429,10 +429,9 @@
                 galleryTrack.appendChild(clone);
             });
 
-            const motionSpeed = window.innerWidth <= 640 ? 18 : 28;
-            galleryTrack.style.animationDuration = `${motionSpeed}s`;
-            galleryTrack.style.animationTimingFunction = 'linear';
-            galleryTrack.style.animationIterationCount = 'infinite';
+            const motionSpeed = window.innerWidth <= 640 ? 20 : 28;
+            galleryTrack.style.animation = `gallerySlide ${motionSpeed}s linear infinite`;
+            galleryTrack.style.webkitAnimation = `gallerySlide ${motionSpeed}s linear infinite`;
         }
 
         const translations = {
@@ -641,22 +640,35 @@
                 context.fillText(currentRegistration.fullName, canvas.width / 2, 724);
 
                 const fileName = `${currentRegistration.fullName.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '') || 'student'}-certificate.png`;
-                const dataUrl = canvas.toDataURL('image/png');
-                const link = document.createElement('a');
-                link.href = dataUrl;
-                link.download = fileName;
-                link.style.display = 'none';
-                document.body.appendChild(link);
 
-                if (navigator.userAgent.match(/iPhone|iPad|iPod|Android/i)) {
-                    setTimeout(() => {
+                canvas.toBlob(function(blob) {
+                    if (!blob) {
+                        alert('Certificate image could not be generated. Please try again.');
+                        return;
+                    }
+
+                    const blobUrl = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = blobUrl;
+                    link.download = fileName;
+                    link.rel = 'noopener';
+                    link.style.position = 'fixed';
+                    link.style.left = '-9999px';
+                    document.body.appendChild(link);
+
+                    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+                    if (isIOS) {
+                        window.open(blobUrl, '_blank');
+                    } else {
                         link.click();
-                        setTimeout(() => document.body.removeChild(link), 1000);
-                    }, 300);
-                } else {
-                    link.click();
-                    document.body.removeChild(link);
-                }
+                    }
+
+                    setTimeout(() => {
+                        document.body.removeChild(link);
+                        URL.revokeObjectURL(blobUrl);
+                    }, 1200);
+                }, 'image/png');
             };
             image.onerror = function() {
                 alert('Certificate image could not be loaded. Please try again.');

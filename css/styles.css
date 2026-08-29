@@ -1266,11 +1266,6 @@ button {
     font-weight: 700;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .gallery-track {
-        animation: none;
-    }
-}
 
 .join-cta {
     padding: 0 18px 110px;
