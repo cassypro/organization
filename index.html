@@ -385,9 +385,6 @@
                 </div>
                 <h2 data-i18n="successTitle">Registration Successful!</h2>
                 <div class="success-details" id="successDetails"></div>
-                <div class="generated-card-preview-wrap">
-                    <img id="generatedCardPreview" alt="Generated registration card preview" hidden>
-                </div>
                 <p data-i18n="successText">Welcome to your learning journey. Get ready to build amazing skills.</p>
                 <p class="whatsapp-required-note" data-i18n="whatsappRequiredText">Please send your registration details on WhatsApp to complete the process.</p>
                 <button class="btn primary" id="sendWhatsAppBtn" type="button" data-i18n="sendOnWhatsApp">Send on WhatsApp</button>
@@ -811,7 +808,6 @@
 
         const sendWhatsAppBtn = document.getElementById('sendWhatsAppBtn');
         const returnNote = document.getElementById('returnNote');
-        const generatedCardPreview = document.getElementById('generatedCardPreview');
         const passportPhotoInput = document.getElementById('passportPhotoInput');
         const photoDropzone = document.getElementById('photoDropzone');
         const passportPreview = document.getElementById('passportPreview');
@@ -1228,19 +1224,7 @@
             // Keep photoDataUrl for the generated WhatsApp registration card until the user shares it.
         });
 
-        async function renderGeneratedCardPreview(data) {
-            if (!generatedCardPreview || !data) return;
-            try {
-                const cardCanvas = await buildRegistrationCardImage(data);
-                const previewUrl = cardCanvas.toDataURL('image/png');
-                generatedCardPreview.src = previewUrl;
-                generatedCardPreview.hidden = false;
-                generatedCardPreview.style.display = 'block';
-            } catch (error) {
-                console.warn('Generated card preview failed:', error);
-                generatedCardPreview.hidden = true;
-            }
-        }
+
 
         async function showSuccessModal(data) {
             hideTermsModal();
@@ -1262,7 +1246,6 @@
                 </div>
             `;
 
-            await renderGeneratedCardPreview(data);
             setCertificateAvailability(false);
             if (returnNote) returnNote.style.display = 'none';
             successModal.classList.add('show');
