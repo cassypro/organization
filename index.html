@@ -509,7 +509,7 @@
                         </a>
                     </p>
                     <p class="footer-whatsapp">
-                        <a href="https://wa.me/918857061397" target="_blank" rel="noopener noreferrer" class="whatsapp-link">
+                        <a href="https://wa.me/message/SCJXJSGS2GQMI1" target="_blank" rel="noopener noreferrer" class="whatsapp-link">
                             <i class="fa-brands fa-whatsapp"></i> <span data-i18n="whatsapp">WhatsApp</span>
                         </a>
                     </p>
@@ -727,6 +727,7 @@
         const memberCountStorageKey = 'svbsm-member-count';
         const registrationHistoryStorageKey = 'svbsm-registration-history';
         const whatsappNumber = '918857061397';
+        const whatsappMessageUrl = 'https://wa.me/message/SCJXJSGS2GQMI1';
         const remoteCountApiKey = 'svbsm-register-counter';
         const remoteCountApiBase = 'https://api.countapi.xyz';
         let currentRegistration = null;
@@ -802,7 +803,7 @@
                 `Terms & Conditions: ${registration.termsAccepted}`
             ].join('\n'))].join('\n\n');
 
-            const waUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
+            const waUrl = `${whatsappMessageUrl}?text=${encodeURIComponent(message)}`;
             window.location.href = waUrl;
         }
 
@@ -1102,11 +1103,12 @@
             downloadLink.click();
             document.body.removeChild(downloadLink);
 
-            // Open WhatsApp to send the image
+            // Open the business WhatsApp chat and prefill the message. On supported mobile browsers,
+            // the native share API above will attach the generated image directly instead of opening a chat.
             const message = `Hello, I have completed my registration with Sattya Vijayate Bahu Uddeshiya Seva Bhavi Mandal (SANSTHA).\n\nRegistration Details:\nName: ${currentRegistration.fullName}\nWhatsApp: ${currentRegistration.whatsappNo}\n\nPlease find my registration card with complete details.`;
-            const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            const waUrl = `${whatsappMessageUrl}?text=${encodeURIComponent(message)}`;
             window.open(waUrl, '_blank');
-            
+
             whatsappShareCompleted = true;
             setCertificateAvailability(true);
             if (returnNote) returnNote.style.display = 'block';
