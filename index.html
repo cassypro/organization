@@ -1075,7 +1075,7 @@
             const cardBlob = await new Promise((resolve) => cardCanvas.toBlob(resolve, 'image/png'));
             const cardFile = new File([cardBlob], `sanstha-registration-${Date.now()}.png`, { type: 'image/png' });
 
-            // Try native share API first (works on mobile)
+            // Try native share API first (works on mobile with WhatsApp)
             if (navigator.share && navigator.canShare && navigator.canShare({ files: [cardFile] })) {
                 try {
                     await navigator.share({
@@ -1094,7 +1094,15 @@
                 }
             }
 
-            // Fallback: Open WhatsApp chat with the organization number
+            // Desktop fallback: Download the image and open WhatsApp
+            const downloadLink = document.createElement('a');
+            downloadLink.href = cardCanvas.toDataURL('image/png');
+            downloadLink.download = `sanstha-registration-${currentRegistration.fullName}.png`;
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+
+            // Open WhatsApp to send the image
             const message = `Hello, I have completed my registration with Sattya Vijayate Bahu Uddeshiya Seva Bhavi Mandal (SANSTHA).\n\nRegistration Details:\nName: ${currentRegistration.fullName}\nWhatsApp: ${currentRegistration.whatsappNo}\n\nPlease find my registration card with complete details.`;
             const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(waUrl, '_blank');
