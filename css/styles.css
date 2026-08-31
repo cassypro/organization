@@ -1041,6 +1041,14 @@ button {
     box-shadow: none !important;
     min-height: 36px;
     padding: 0;
+    color: #ffffff !important;
+    font-weight: 500;
+}
+
+.field-wrap input::placeholder,
+.field-wrap textarea::placeholder,
+.field-wrap select option {
+    color: rgba(255, 255, 255, 0.64);
 }
 
 .field-wrap textarea {
@@ -1835,6 +1843,23 @@ body.modal-open > *:not(.terms-modal):not(.success-modal) {
     color: #9a6500;
     font-weight: 700;
     display: inline-block;
+}
+
+.generated-card-preview-wrap {
+    margin: 18px 0 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#generatedCardPreview {
+    width: min(100%, 260px);
+    max-height: 360px;
+    border-radius: 16px;
+    border: 2px solid rgba(255, 210, 118, 0.6);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    background: rgba(17, 22, 30, 0.9);
+    object-fit: contain;
+    display: block;
 }
 
 #homeBtn {

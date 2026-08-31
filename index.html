@@ -249,6 +249,12 @@
                             <input type="text" name="dobAge" placeholder="Date of Birth / Age" required onfocus="this.type='date'; this.setAttribute('data-has-date','true');" onblur="if(!this.value){ this.type='text'; this.removeAttribute('data-has-date'); }">
                         </label>
                     </div>
+                    <div class="form-row single-row">
+                        <label class="field-wrap">
+                            <span class="field-icon"><i class="fa-regular fa-calendar-check"></i></span>
+                            <input type="date" name="registrationDate" id="registrationDate" placeholder="Registration Date" required>
+                        </label>
+                    </div>
                     <div class="form-row">
                         <label class="field-wrap">
                             <span class="field-icon"><i class="fa-solid fa-venus-mars"></i></span>
@@ -379,6 +385,9 @@
                 </div>
                 <h2 data-i18n="successTitle">Registration Successful!</h2>
                 <div class="success-details" id="successDetails"></div>
+                <div class="generated-card-preview-wrap">
+                    <img id="generatedCardPreview" alt="Generated registration card preview" hidden>
+                </div>
                 <p data-i18n="successText">Welcome to your learning journey. Get ready to build amazing skills.</p>
                 <p class="whatsapp-required-note" data-i18n="whatsappRequiredText">Please send your registration details on WhatsApp to complete the process.</p>
                 <button class="btn primary" id="sendWhatsAppBtn" type="button" data-i18n="sendOnWhatsApp">Send on WhatsApp</button>
@@ -646,7 +655,7 @@
                 sports: 'Sports', cricket: 'Cricket', football: 'Football', athletics: 'Athletics', kabaddi: 'Kabaddi', fitness: 'Fitness activities', education: 'Education', assessments: 'IQ / Neuro assessments', careerGuidance: 'Career guidance', computerEducation: 'Computer education', digitalLiteracy: 'Digital literacy', workshops: 'Workshops', dance: 'Dance', danceWorkshop: 'Dance workshop', choreography: 'Choreography', competitions: 'Competitions', music: 'Music', singing: 'Singing', instrumental: 'Instrumental', musicWorkshops: 'Music workshops', cultural: 'Cultural', drawing: 'Drawing', art: 'Art', drama: 'Drama', essay: 'Essay', elocution: 'Elocution', culturalCompetitions: 'Cultural competitions',
                 neuroLabel: 'Neuro Care Test', neuroTitle: 'Assess growth, confidence, and core potential', neuroText: 'Personalized neuro and IQ assessments help learners understand strengths, learning style, and developmental readiness for the next stage of education and life.', learningEvaluation: 'Learning ability evaluation', neuroGuidance: 'Neuro care guidance', aptitudeInsight: 'IQ and aptitude insight', scanPortal: 'Scan to open Exam portal for Neuro Care Test and IQ Test', openPortal: 'Open Exam Portal',
                 examLabel: 'Exam', examTitle: 'Preparation with clarity and consistency', examText: 'SVBSM supports students with interview preparation, exam readiness, communication practice and career confidence.', studyDiscipline: 'Study discipline', interviewPractice: 'Interview practice', confidenceBuilding: 'Confidence building', upcomingFocus: 'Upcoming Focus', upcomingText: 'Personality development, public speaking and practical preparation for students and aspirants.',
-                registrationLabel: 'Registration', registrationTitle: 'Start your learning journey', fullName: 'Full Name', age: 'Age', mobile: 'Mobile Number', email: 'Email ID', address: 'Full Address', successTitle: 'Registration Successful!', successText: '🎉 Welcome to Our Organization! Together, let us serve our nation, create a positive impact, and grow towards a brighter future.', whatsappRequiredText: 'Your registration has been submitted. Please send your details on WhatsApp to complete the process.', sendOnWhatsApp: 'Send on WhatsApp', returnDownloadText: 'After sending, return to the website and download your certificate.', goHome: 'Go to Home', memberRankingLabel: 'Sanstha Member Ranking', memberRankingTitle: 'President - Tushar Ingle', memberRankingText: 'Learning Together, Growing Together, Building a Better Future Together.', memberCountLabel: 'Registered members', aboutLabel: 'About / परिचय', sanstha: '(Sanstha)', footerTagline: 'Education & Service', contact: '📞 Contact', whatsapp: 'WhatsApp', followUs: '📱 Follow Us', developer: 'Website developed by Tushar Ingle', copyright: '© 2024 Sattya Vijayate Bahu Uddeshiya Seva Bhavi Mandal. All rights reserved.'
+                registrationLabel: 'Registration', registrationTitle: 'Start your learning journey', fullName: 'Full Name', age: 'Age', mobile: 'Mobile Number', email: 'Email ID', address: 'Full Address', successTitle: 'Registration Successful!', successText: '🎉 Welcome to Our Organization! Together, let us serve our nation, create a positive impact, and grow towards a brighter future.', whatsappRequiredText: 'Your registration has been submitted. Please send your details on WhatsApp to complete the process. The Download Certificate button will appear only after you send the details on WhatsApp.', sendOnWhatsApp: 'Send on WhatsApp', returnDownloadText: 'After sending on WhatsApp, return to this page and the Download Certificate button will become available.', goHome: 'Go to Home', memberRankingLabel: 'Sanstha Member Ranking', memberRankingTitle: 'President - Tushar Ingle', memberRankingText: 'Learning Together, Growing Together, Building a Better Future Together.', memberCountLabel: 'Registered members', aboutLabel: 'About / परिचय', sanstha: '(Sanstha)', footerTagline: 'Education & Service', contact: '📞 Contact', whatsapp: 'WhatsApp', followUs: '📱 Follow Us', developer: 'Website developed by Tushar Ingle', copyright: '© 2024 Sattya Vijayate Bahu Uddeshiya Seva Bhavi Mandal. All rights reserved.'
             },
             hi: {
                 navHome: 'होम', navPrograms: 'कार्यक्रम', navNeuro: 'न्यूरो टेस्ट', navRegistration: 'पंजीकरण', navAbout: 'परिचय',
@@ -655,13 +664,14 @@
                 sports: 'खेल', cricket: 'क्रिकेट', football: 'फुटबॉल', athletics: 'एथलेटिक्स', kabaddi: 'कबड्डी', fitness: 'फिटनेस गतिविधियाँ', education: 'शिक्षा', assessments: 'IQ / न्यूरो आकलन', careerGuidance: 'करियर मार्गदर्शन', computerEducation: 'कंप्यूटर शिक्षा', digitalLiteracy: 'डिजिटल साक्षरता', workshops: 'कार्यशालाएँ', dance: 'नृत्य', danceWorkshop: 'नृत्य कार्यशाला', choreography: 'कोरियोग्राफी', competitions: 'प्रतियोगिताएँ', music: 'संगीत', singing: 'गायन', instrumental: 'वाद्य संगीत', musicWorkshops: 'संगीत कार्यशालाएँ', cultural: 'सांस्कृतिक', drawing: 'चित्रकला', art: 'कला', drama: 'नाटक', essay: 'निबंध', elocution: 'वक्तृत्व', culturalCompetitions: 'सांस्कृतिक प्रतियोगिताएँ',
                 neuroLabel: 'न्यूरो केयर टेस्ट', neuroTitle: 'विकास, आत्मविश्वास और क्षमता का आकलन करें', neuroText: 'व्यक्तिगत न्यूरो और IQ आकलन से विद्यार्थियों को अपनी खूबियों, सीखने की शैली और शिक्षा तथा जीवन के अगले चरण की तैयारी समझने में मदद मिलती है।', learningEvaluation: 'सीखने की क्षमता का मूल्यांकन', neuroGuidance: 'न्यूरो केयर मार्गदर्शन', aptitudeInsight: 'IQ और अभिरुचि की जानकारी', scanPortal: 'न्यूरो केयर टेस्ट और IQ टेस्ट पोर्टल खोलने के लिए स्कैन करें', openPortal: 'परीक्षा पोर्टल खोलें',
                 examLabel: 'परीक्षा', examTitle: 'स्पष्टता और निरंतरता के साथ तैयारी', examText: 'SVBSM विद्यार्थियों को साक्षात्कार की तैयारी, परीक्षा तैयारी, संवाद अभ्यास और करियर आत्मविश्वास में सहयोग करता है।', studyDiscipline: 'अध्ययन अनुशासन', interviewPractice: 'साक्षात्कार अभ्यास', confidenceBuilding: 'आत्मविश्वास निर्माण', upcomingFocus: 'आगामी विषय', upcomingText: 'विद्यार्थियों और अभ्यर्थियों के लिए व्यक्तित्व विकास, सार्वजनिक वक्तृत्व और व्यावहारिक तैयारी।',
-                registrationLabel: 'पंजीकरण', registrationTitle: 'अपनी सीखने की यात्रा शुरू करें', fullName: 'पूरा नाम', age: 'आयु', mobile: 'मोबाइल नंबर', email: 'ईमेल आईडी', address: 'पूरा पता', successTitle: 'पंजीकरण सफल!', successText: '🎉 हमारे संगठन में आपका स्वागत है! साथ मिलकर हम देश की सेवा करें, सकारात्मक प्रभाव बनाएँ और उज्ज्वल भविष्य की ओर बढ़ें।', whatsappRequiredText: 'आपका पंजीकरण हो चुका है। प्रक्रिया पूरी करने के लिए अपने विवरण WhatsApp पर भेजें।', sendOnWhatsApp: 'WhatsApp पर भेजें', returnDownloadText: 'भेजने के बाद वेबसाइट पर वापस जाएँ और अपना certificate डाउनलोड करें।', goHome: 'होम पर जाएँ', memberRankingLabel: 'संस्था सदस्य रैंकिंग', memberRankingTitle: 'President - Tushar Ingle', memberRankingText: 'हर नया पंजीकरण हमारे समुदाय को एक कदम आगे बढ़ाता है।', memberCountLabel: 'पंजीकृत सदस्य', aboutLabel: 'परिचय', sanstha: '(संस्था)', footerTagline: 'शिक्षा एवं सेवा', contact: '📞 संपर्क', whatsapp: 'व्हाट्सऐप', followUs: '📱 हमें फॉलो करें', developer: 'वेबसाइट निर्माण: Tushar Ingle', copyright: '© 2024 Sattya Vijayate Bahu Uddeshiya Seva Bhavi Mandal. सर्वाधिकार सुरक्षित।'
+                registrationLabel: 'पंजीकरण', registrationTitle: 'अपनी सीखने की यात्रा शुरू करें', fullName: 'पूरा नाम', age: 'आयु', mobile: 'मोबाइल नंबर', email: 'ईमेल आईडी', address: 'पूरा पता', successTitle: 'पंजीकरण सफल!', successText: '🎉 हमारे संगठन में आपका स्वागत है! साथ मिलकर हम देश की सेवा करें, सकारात्मक प्रभाव बनाएँ और उज्ज्वल भविष्य की ओर बढ़ें।', whatsappRequiredText: 'आपका पंजीकरण हो चुका है। प्रक्रिया पूरी करने के लिए अपने विवरण WhatsApp पर भेजें। Download Certificate बटन केवल WhatsApp पर विवरण भेजने के बाद ही दिखाई देगा।', sendOnWhatsApp: 'WhatsApp पर भेजें', returnDownloadText: 'WhatsApp पर भेजने के बाद इस पृष्ठ पर वापस लौटें और Download Certificate बटन उपलब्ध होगा।', goHome: 'होम पर जाएँ', memberRankingLabel: 'संस्था सदस्य रैंकिंग', memberRankingTitle: 'President - Tushar Ingle', memberRankingText: 'हर नया पंजीकरण हमारे समुदाय को एक कदम आगे बढ़ाता है।', memberCountLabel: 'पंजीकृत सदस्य', aboutLabel: 'परिचय', sanstha: '(संस्था)', footerTagline: 'शिक्षा एवं सेवा', contact: '📞 संपर्क', whatsapp: 'व्हाट्सऐप', followUs: '📱 हमें फॉलो करें', developer: 'वेबसाइट निर्माण: Tushar Ingle', copyright: '© 2024 Sattya Vijayate Bahu Uddeshiya Seva Bhavi Mandal. सर्वाधिकार सुरक्षित।'
             }
         };
         let currentLanguage = localStorage.getItem('svbsm-language') || 'en';
 
         // Registration Form Handler
         const registrationForm = document.getElementById('registrationForm');
+        const registrationDateInput = document.getElementById('registrationDate');
         const educationQualificationSelect = document.getElementById('educationQualification');
         const educationQualificationOther = document.getElementById('educationQualificationOther');
         const interestedActivitiesSelect = document.getElementById('interestedActivities');
@@ -699,6 +709,15 @@
             }
         }
 
+        function setTodayRegistrationDate() {
+            if (!registrationDateInput) return;
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            registrationDateInput.value = `${yyyy}-${mm}-${dd}`;
+        }
+
         if (educationQualificationSelect) {
             educationQualificationSelect.addEventListener('change', updateEducationQualificationField);
         }
@@ -706,6 +725,8 @@
         if (interestedActivitiesSelect) {
             interestedActivitiesSelect.addEventListener('change', updateInterestedActivitiesField);
         }
+
+        setTodayRegistrationDate();
         const memberCountStorageKey = 'svbsm-member-count';
         const registrationHistoryStorageKey = 'svbsm-registration-history';
         const whatsappNumber = '918857061397';
@@ -771,6 +792,7 @@
             const message = ['New registration history:', ...history.map((registration, index) => [
                 `${index + 1}. Full Name: ${registration.fullName}`,
                 `Date of Birth / Age: ${registration.dobAge}`,
+                `Registration Date: ${registration.registrationDate || 'Not provided'}`,
                 `Gender: ${registration.gender}`,
                 `WhatsApp Number: ${registration.whatsappNo}`,
                 `Email: ${registration.emailId}`,
@@ -789,6 +811,7 @@
 
         const sendWhatsAppBtn = document.getElementById('sendWhatsAppBtn');
         const returnNote = document.getElementById('returnNote');
+        const generatedCardPreview = document.getElementById('generatedCardPreview');
         const passportPhotoInput = document.getElementById('passportPhotoInput');
         const photoDropzone = document.getElementById('photoDropzone');
         const passportPreview = document.getElementById('passportPreview');
@@ -842,23 +865,20 @@
                 canvas.height = 1540;
                 const ctx = canvas.getContext('2d');
 
-                const bgGradient = ctx.createRadialGradient(canvas.width / 2, canvas.height / 2, 100, canvas.width / 2, canvas.height / 2, canvas.width * 0.9);
-                bgGradient.addColorStop(0, '#071c2d');
-                bgGradient.addColorStop(0.46, '#061921');
-                bgGradient.addColorStop(1, '#020b10');
-                ctx.fillStyle = bgGradient;
+                // White background
+                ctx.fillStyle = '#ffffff';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-                const gold = '#f4c66b';
-                const golden = '#e7ae3a';
-                const panelBlue = '#0a1d2c';
-                const freeBlue = '#0d2237';
-                const white = '#edf4ff';
+                const red = '#c41e3a';
+                const darkRed = '#8b0000';
+                const black = '#1a1a1a';
+                const lightGray = '#f5f5f5';
 
                 function drawHeaderText() {
                     ctx.textAlign = 'center';
 
-                    ctx.fillStyle = '#f4c66b';
+                    // Main title - red color
+                    ctx.fillStyle = red;
                     ctx.font = '700 42px "Segoe UI", Arial, sans-serif';
                     ctx.fillText('SATTYA VIJAYATE', canvas.width / 2, 180);
 
@@ -867,7 +887,8 @@
                     ctx.fillText('SEVA BHAVI MANDAL', canvas.width / 2, 285);
                     ctx.fillText('(SANSTHA)', canvas.width / 2, 335);
 
-                    ctx.fillStyle = '#f4c66b';
+                    // Sub-titles - black
+                    ctx.fillStyle = black;
                     ctx.font = '700 18px "Segoe UI", Arial, sans-serif';
                     ctx.fillText('EDUCATION', 150, 395);
                     ctx.fillText('CULTURE', 330, 395);
@@ -880,29 +901,36 @@
 
                 function drawMainBody() {
                     const formX = 90;
-                    const formY = 450;
+                    const formY = 430;
                     const formW = 620;
-                    const formH = 420;
+                    const formH = 430;
                     const photoX = 740;
-                    const photoY = 450;
+                    const photoY = 430;
                     const photoW = 260;
-                    const photoH = 290;
+                    const photoH = 280;
 
-                    ctx.fillStyle = '#0c1d2d';
+                    // Details section - white background
+                    ctx.fillStyle = '#ffffff';
                     ctx.fillRect(formX, formY, formW, formH);
 
-                    ctx.fillStyle = '#f4c66b';
+                    // Section title - red
+                    ctx.fillStyle = red;
                     ctx.textAlign = 'left';
-                    ctx.font = '700 34px "Segoe UI", Arial, sans-serif';
-                    ctx.fillText('REGISTRATION DETAILS', formX + 22, formY + 48);
+                    ctx.font = '700 28px "Segoe UI", Arial, sans-serif';
+                    ctx.fillText('REGISTRATION DETAILS', formX + 22, formY + 46);
 
-                    ctx.fillStyle = '#0c1d2d';
+                    // Photo section - white background with red border
+                    ctx.fillStyle = '#ffffff';
                     ctx.fillRect(photoX, photoY, photoW, photoH);
+                    ctx.strokeStyle = red;
+                    ctx.lineWidth = 3;
+                    ctx.strokeRect(photoX, photoY, photoW, photoH);
 
                     const drawInfoRows = () => {
                         const infoList = [
                             ['Full Name', registration.fullName],
                             ['Date of Birth / Age', registration.dobAge],
+                            ['Registration Date', registration.registrationDate],
                             ['Gender', registration.gender],
                             ['WhatsApp Number', registration.whatsappNo],
                             ['Email', registration.emailId],
@@ -914,58 +942,74 @@
                         ];
 
                         const labelX = formX + 22;
-                        const valueX = formX + 225;
-                        let currentY = formY + 90;
+                        const valueX = formX + 215;
+                        let currentY = formY + 80;
+                        const rowGap = 38;
 
                         infoList.forEach(([label, value]) => {
-                            ctx.fillStyle = '#f5c66a';
-                            ctx.font = '600 20px "Segoe UI", Arial, sans-serif';
-                            ctx.fillText(`${label}`, labelX, currentY);
-
-                            ctx.fillStyle = '#edf5ff';
-                            ctx.font = '600 20px "Segoe UI", Arial, sans-serif';
                             const text = String(value || 'Not provided');
-                            const wrapped = wrapText(ctx, text, 330);
+                            const wrapped = wrapText(ctx, text, 305);
+                            // Label text - red
+                            ctx.fillStyle = red;
+                            ctx.font = '700 17px "Segoe UI", Arial, sans-serif';
+                            ctx.fillText(label, labelX, currentY);
+
+                            // Value text - black
+                            ctx.fillStyle = black;
+                            ctx.font = '600 17px "Segoe UI", Arial, sans-serif';
                             wrapped.slice(0, 2).forEach((line, index) => {
-                                ctx.fillText(line, valueX, currentY + 28 + index * 21);
+                                ctx.fillText(line, valueX, currentY + 22 + index * 20);
                             });
 
-                            currentY += 48;
+                            currentY += rowGap + Math.max(0, wrapped.length - 1) * 18;
                         });
                     };
 
                     drawInfoRows();
 
-                    ctx.fillStyle = '#0d1d2d';
+                    // Pride section - light background with red border
+                    ctx.fillStyle = '#ffffff';
                     ctx.fillRect(770, 900, 220, 150);
+                    ctx.strokeStyle = red;
+                    ctx.lineWidth = 3;
+                    ctx.strokeRect(770, 900, 220, 150);
 
-                    ctx.fillStyle = '#f7ce7c';
+                    // Pride text - red
+                    ctx.fillStyle = red;
                     ctx.textAlign = 'center';
                     ctx.font = '700 22px "Segoe UI", Arial, sans-serif';
                     ctx.fillText('PROUD TO', 880, 965);
                     ctx.fillText('BE A PART OF', 880, 995);
                     ctx.fillText('OUR MISSION', 880, 1025);
 
-                    ctx.fillStyle = '#f4c66b';
+                    // Thank you - red
+                    ctx.fillStyle = red;
                     ctx.font = '700 28px "Segoe UI", Arial, sans-serif';
                     ctx.fillText('Thank You', canvas.width / 2, 1115);
                     ctx.font = 'italic 700 22px Georgia, serif';
                     ctx.fillText('for Joining Our Organization', canvas.width / 2, 1150);
 
-                    ctx.fillStyle = '#0d1d2d';
+                    // Welcome section - light background with red border
+                    ctx.fillStyle = '#ffffff';
                     ctx.fillRect(78, 1185, 924, 160);
+                    ctx.strokeStyle = red;
+                    ctx.lineWidth = 3;
+                    ctx.strokeRect(78, 1185, 924, 160);
 
-                    ctx.fillStyle = '#f4c66b';
+                    // Welcome title - red
+                    ctx.fillStyle = red;
                     ctx.font = '700 38px Georgia, serif';
                     ctx.textAlign = 'center';
                     ctx.fillText('Welcome to Our Organization', canvas.width / 2, 1255);
 
-                    ctx.fillStyle = '#edf5ff';
+                    // Welcome text - black
+                    ctx.fillStyle = black;
                     ctx.font = '600 20px "Segoe UI", Arial, sans-serif';
                     ctx.fillText('हमारी संस्था से जुड़ें, भारत के लिए नया कुछ करें।', canvas.width / 2, 1295);
                     ctx.fillText('Stay connected with our organization, and do something new for India.', canvas.width / 2, 1328);
 
-                    ctx.fillStyle = '#f4c66b';
+                    // Footer - red
+                    ctx.fillStyle = red;
                     ctx.font = '700 18px "Segoe UI", Arial, sans-serif';
                     ctx.fillText('TOGETHER WE LEARN', canvas.width / 2, 1475);
 
@@ -973,22 +1017,26 @@
                         if (!registration.photoDataUrl) return;
                         const img = new Image();
                         img.onload = function() {
-                            const innerX = photoX + 16;
-                            const innerY = photoY + 16;
-                            const innerW = photoW - 32;
-                            const innerH = photoH - 32;
+                            const innerX = photoX + 18;
+                            const innerY = photoY + 18;
+                            const innerW = photoW - 36;
+                            const innerH = photoH - 36;
                             const crop = Math.min(img.width, img.height);
                             const sx = (img.width - crop) / 2;
                             const sy = (img.height - crop) / 2;
 
                             ctx.save();
                             ctx.beginPath();
-                            ctx.roundRect(innerX, innerY, innerW, innerH, 18);
+                            ctx.roundRect(innerX, innerY, innerW, innerH, 20);
                             ctx.clip();
-                            ctx.fillStyle = '#e7edf5';
+                            ctx.fillStyle = '#edf2f9';
                             ctx.fillRect(innerX, innerY, innerW, innerH);
                             ctx.drawImage(img, sx, sy, crop, crop, innerX, innerY, innerW, innerH);
                             ctx.restore();
+
+                            ctx.strokeStyle = red;
+                            ctx.lineWidth = 3;
+                            ctx.strokeRect(photoX + 10, photoY + 10, photoW - 20, photoH - 20);
 
                             resolve(canvas);
                         };
@@ -1030,11 +1078,12 @@
             const cardBlob = await new Promise((resolve) => cardCanvas.toBlob(resolve, 'image/png'));
             const cardFile = new File([cardBlob], `sanstha-registration-${Date.now()}.png`, { type: 'image/png' });
 
+            // Try native share API first (works on mobile)
             if (navigator.share && navigator.canShare && navigator.canShare({ files: [cardFile] })) {
                 try {
                     await navigator.share({
-                        title: 'Sanstha Registration Details',
-                        text: 'Please see my registration details and photo from the Sanstha registration form.',
+                        title: 'Sanstha Registration',
+                        text: 'My registration details from Sattya Vijayate Bahu Uddeshiya Seva Bhavi Mandal (SANSTHA)',
                         files: [cardFile]
                     });
                     whatsappShareCompleted = true;
@@ -1042,12 +1091,17 @@
                     if (returnNote) returnNote.style.display = 'block';
                     return;
                 } catch (error) {
-                    console.warn('Native share cancelled or unavailable:', error);
+                    if (error.name !== 'AbortError') {
+                        console.warn('Native share failed:', error);
+                    }
                 }
             }
 
-            const shareUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hello, I have completed the Sanstha registration. Please open the image below and save it for my registration record.\n\n${currentRegistration.fullName}\n${currentRegistration.whatsappNo}`)}`;
-            window.location.href = shareUrl;
+            // Fallback: Open WhatsApp chat with the organization number
+            const message = `Hello, I have completed my registration with Sattya Vijayate Bahu Uddeshiya Seva Bhavi Mandal (SANSTHA).\n\nRegistration Details:\nName: ${currentRegistration.fullName}\nWhatsApp: ${currentRegistration.whatsappNo}\n\nPlease find my registration card with complete details.`;
+            const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(waUrl, '_blank');
+            
             whatsappShareCompleted = true;
             setCertificateAvailability(true);
             if (returnNote) returnNote.style.display = 'block';
@@ -1139,6 +1193,7 @@
             const data = {
                 fullName: formData.get('fullName'),
                 dobAge: formData.get('dobAge'),
+                registrationDate: formData.get('registrationDate') || new Date().toISOString().slice(0, 10),
                 gender: formData.get('gender'),
                 whatsappNo: whatsappNo,
                 emailId: emailId,
@@ -1173,13 +1228,28 @@
             // Keep photoDataUrl for the generated WhatsApp registration card until the user shares it.
         });
 
-        function showSuccessModal(data) {
+        async function renderGeneratedCardPreview(data) {
+            if (!generatedCardPreview || !data) return;
+            try {
+                const cardCanvas = await buildRegistrationCardImage(data);
+                const previewUrl = cardCanvas.toDataURL('image/png');
+                generatedCardPreview.src = previewUrl;
+                generatedCardPreview.hidden = false;
+                generatedCardPreview.style.display = 'block';
+            } catch (error) {
+                console.warn('Generated card preview failed:', error);
+                generatedCardPreview.hidden = true;
+            }
+        }
+
+        async function showSuccessModal(data) {
             hideTermsModal();
             currentRegistration = data;
             successDetails.innerHTML = `
                 <div class="details-box">
                     <p><strong>${currentLanguage === 'hi' ? 'नाम' : 'Name'}:</strong> ${data.fullName}</p>
                     <p><strong>${currentLanguage === 'hi' ? 'जन्मतिथि / आयु' : 'DOB / Age'}:</strong> ${data.dobAge}</p>
+                    <p><strong>Registration Date:</strong> ${data.registrationDate || 'Not provided'}</p>
                     <p><strong>${currentLanguage === 'hi' ? 'लिंग' : 'Gender'}:</strong> ${data.gender}</p>
                     <p><strong>${currentLanguage === 'hi' ? 'व्हाट्सऐप' : 'WhatsApp'}:</strong> ${data.whatsappNo}</p>
                     <p><strong>${currentLanguage === 'hi' ? 'ईमेल' : 'Email'}:</strong> ${data.emailId}</p>
@@ -1192,6 +1262,7 @@
                 </div>
             `;
 
+            await renderGeneratedCardPreview(data);
             setCertificateAvailability(false);
             if (returnNote) returnNote.style.display = 'none';
             successModal.classList.add('show');
