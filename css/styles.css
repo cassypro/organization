@@ -968,6 +968,15 @@ button {
     box-shadow: var(--shadow);
 }
 
+.registration-shell {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    align-items: start;
+    max-width: 760px;
+    margin: 24px auto 0;
+}
+
 .registration-form {
     position: relative;
     overflow: hidden;
@@ -978,12 +987,9 @@ button {
     padding: 22px !important;
     min-height: 0 !important;
     display: block !important;
-    margin-top: 16px !important;
     opacity: 1 !important;
     animation: slideInUp 0.8s ease-out forwards, glowPulse 4s ease-in-out infinite !important;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
 }
 
 .registration-form::before {
@@ -995,6 +1001,276 @@ button {
     background: radial-gradient(circle, rgba(255, 198, 92, 0.22), transparent 60%);
     filter: blur(8px);
     pointer-events: none;
+}
+
+.field-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 56px;
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 209, 120, 0.45);
+    border-radius: 10px;
+    background: rgba(17, 20, 27, 0.9);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.field-wrap:focus-within {
+    border-color: rgba(255, 205, 110, 0.9);
+    box-shadow: 0 0 0 4px rgba(255, 200, 97, 0.16), inset 0 0 0 1px rgba(255, 190, 82, 0.3);
+    transform: translateY(-2px);
+}
+
+.field-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    min-width: 26px;
+    color: #f4b93b;
+    font-size: 1.1rem;
+}
+
+.field-wrap input,
+.field-wrap select,
+.field-wrap textarea {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    min-height: 36px;
+    padding: 0;
+}
+
+.field-wrap textarea {
+    min-height: 72px;
+    resize: vertical;
+}
+
+.optional-field {
+    display: none;
+}
+
+.single-row .field-wrap {
+    width: 100%;
+}
+
+.photo-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+    padding: 24px 18px 18px;
+    border: 1px solid rgba(255, 205, 110, 0.4);
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(17, 22, 30, 0.82), rgba(10, 12, 20, 0.9));
+    box-shadow: 0 0 28px rgba(244, 185, 59, 0.18);
+    text-align: center;
+}
+
+.photo-panel h3 {
+    margin: 0 0 18px;
+    width: 100%;
+    color: #f4b93b;
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: left;
+    font-weight: 800;
+}
+
+.photo-title-inline {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    z-index: 2;
+    color: #f4b93b;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.photo-dropzone {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: min(230px, 100%);
+    aspect-ratio: 1;
+    border: 2px solid rgba(244, 185, 59, 0.95);
+    border-radius: 18px;
+    background: rgba(19, 26, 35, 0.9);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06), 0 0 24px rgba(244, 185, 59, 0.12);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.photo-dropzone img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.photo-dropzone.has-image img {
+    display: block;
+}
+
+.photo-placeholder-icon {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: rgba(244, 185, 59, 0.1);
+    color: #f4b93b;
+    font-size: 2rem;
+    z-index: 1;
+}
+
+.photo-plus {
+    position: absolute;
+    right: 22px;
+    bottom: 18px;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 2px solid #f4b93b;
+    border-radius: 50%;
+    background: rgba(17, 22, 28, 0.9);
+    color: #f4b93b;
+    font-size: 1.8rem;
+    line-height: 1;
+    font-weight: 700;
+    z-index: 2;
+}
+
+.photo-meta {
+    width: 100%;
+    margin-top: 16px;
+    text-align: center;
+}
+
+.photo-panel .photo-title {
+    margin: 0 0 8px;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.photo-panel small {
+    display: block;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+#passportPhotoInput {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.choose-photo-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 48px;
+    margin-top: 18px;
+    border: 1px solid rgba(244, 185, 59, 0.8);
+    border-radius: 10px;
+    background: rgba(17, 22, 28, 0.7);
+    color: #f4b93b;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.registration-form .form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.registration-form .form-row.single-row {
+    grid-template-columns: 1fr;
+}
+
+.registration-form .terms-row {
+    margin: 18px 0 24px;
+}
+
+@media (max-width: 980px) {
+    .registration-shell {
+        grid-template-columns: 1fr;
+        max-width: 680px;
+        padding: 0 12px;
+    }
+
+    .photo-panel {
+        min-height: auto;
+        padding: 20px 16px 18px;
+    }
+
+    .photo-dropzone {
+        width: min(200px, 100%);
+    }
+}
+
+@media (max-width: 640px) {
+    .registration-shell {
+        margin-top: 18px;
+        gap: 18px;
+    }
+
+    .registration-form {
+        padding: 16px !important;
+    }
+
+    .registration-form .form-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .field-wrap {
+        min-height: 50px;
+        padding: 8px 10px;
+        gap: 10px;
+    }
+
+    .field-wrap input,
+    .field-wrap select,
+    .field-wrap textarea {
+        font-size: 14px;
+    }
+
+    .field-wrap textarea {
+        min-height: 68px;
+    }
+
+    .photo-panel h3 {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    .photo-panel .photo-title {
+        font-size: 1rem;
+    }
+
+    .choose-photo-btn {
+        min-height: 44px;
+    }
 }
 
 .exam-content {
@@ -1571,6 +1847,10 @@ body.modal-open > *:not(.terms-modal):not(.success-modal) {
     margin-top: 8px;
     color: #172033;
     background: #f0bb52;
+}
+
+.certificate-btn.hidden {
+    display: none;
 }
 
 .certificate-btn:hover {

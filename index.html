@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self' https://api.countapi.xyz; object-src 'none'; base-uri 'self'; form-action 'self';">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
     <title>SATTYA VIJAYATE BAHU UDESHIYA SEVABHAVI MANDAL (SANSTHA)</title>
@@ -220,93 +220,144 @@
                 <p class="eyebrow" data-i18n="registrationLabel">Registration</p>
                 <h2 data-i18n="registrationTitle">Start your learning journey</h2>
             </div>
-            <form class="registration-form animate-up delay-1" id="registrationForm">
-                <div class="form-row">
-                    <input type="text" name="fullName" placeholder="Full Name*" required>
-                    <input type="text" name="dobAge" placeholder="Date of Birth / Age" required onfocus="this.type='date'; this.setAttribute('data-has-date','true');" onblur="if(!this.value){ this.type='text'; this.removeAttribute('data-has-date'); }">
-                </div>
-                <div class="form-row">
-                    <select name="gender" title="Gender" required>
-                        <option value="">Gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Other">Other</option>
-                    </select>
-                    <input type="tel" name="whatsappNo" placeholder="WhatsApp Number" pattern="^[+]?[(]?[0-9]{1,4}[)]?[-\s0-9]{7,15}$" inputmode="numeric" required>
-                </div>
-                <div class="form-row">
-                    <input type="email" name="emailId" placeholder="Email" required>
-                </div>
-                <div class="form-row">
-                    <textarea name="fullAddress" placeholder="Full Address*" required></textarea>
-                </div>
-                <div class="form-row education-row">
-                    <select name="educationQualification" id="educationQualification" title="Education Qualification">
-                        <option value="">Education Qualification</option>
-                        <option value="10th Pass">10th Pass</option>
-                        <option value="12th Pass">12th Pass</option>
-                        <option value="Diploma">Diploma</option>
-                        <option value="ITI / Vocational Course">ITI / Vocational Course</option>
-                        <option value="Bachelor of Arts (BA)">Bachelor of Arts (BA)</option>
-                        <option value="Bachelor of Science (BSc)">Bachelor of Science (BSc)</option>
-                        <option value="Bachelor of Commerce (BCom)">Bachelor of Commerce (BCom)</option>
-                        <option value="Bachelor of Computer Applications (BCA)">Bachelor of Computer Applications (BCA)</option>
-                        <option value="Bachelor of Engineering (BE / BTech)">Bachelor of Engineering (BE / BTech)</option>
-                        <option value="Bachelor of Pharmacy (BPharm)">Bachelor of Pharmacy (BPharm)</option>
-                        <option value="Bachelor of Business Administration (BBA)">Bachelor of Business Administration (BBA)</option>
-                        <option value="Bachelor of Medicine and Surgery (MBBS)">Bachelor of Medicine and Surgery (MBBS)</option>
-                        <option value="Bachelor of Dental Surgery (BDS)">Bachelor of Dental Surgery (BDS)</option>
-                        <option value="Bachelor of Ayurvedic Medicine (BAMS)">Bachelor of Ayurvedic Medicine (BAMS)</option>
-                        <option value="Bachelor of Homeopathic Medicine (BHMS)">Bachelor of Homeopathic Medicine (BHMS)</option>
-                        <option value="Bachelor of Law (LLB)">Bachelor of Law (LLB)</option>
-                        <option value="Chartered Accountant (CA)">Chartered Accountant (CA)</option>
-                        <option value="Company Secretary (CS)">Company Secretary (CS)</option>
-                        <option value="Master of Arts (MA)">Master of Arts (MA)</option>
-                        <option value="Master of Science (MSc)">Master of Science (MSc)</option>
-                        <option value="Master of Commerce (MCom)">Master of Commerce (MCom)</option>
-                        <option value="Master of Computer Applications (MCA)">Master of Computer Applications (MCA)</option>
-                        <option value="Master of Engineering / Technology (ME / MTech)">Master of Engineering / Technology (ME / MTech)</option>
-                        <option value="Master of Pharmacy (MPharm)">Master of Pharmacy (MPharm)</option>
-                        <option value="Master of Business Administration (MBA)">Master of Business Administration (MBA)</option>
-                        <option value="Post Graduation (General)">Post Graduation (General)</option>
-                        <option value="Doctor of Philosophy (PhD)">Doctor of Philosophy (PhD)</option>
-                        <option value="Other">Other</option>
-                    </select>
-                    <input type="text" name="educationQualificationOther" id="educationQualificationOther" placeholder="Specify if Other" style="display:none;">
-                    <select name="occupation" title="Occupation" required>
-                        <option value="">Occupation</option>
-                        <option value="Employee — कर्मचारी">Employee — कर्मचारी</option>
-                        <option value="Student — विद्यार्थी">Student — विद्यार्थी</option>
-                        <option value="Unemployed — बेरोज़गार">Unemployed — बेरोज़गार</option>
-                    </select>
-                </div>
-                <div class="form-row">
-                    <select name="interestedActivities" id="interestedActivities" title="Interested Activities" required>
-                        <option value="">Interested Activities*</option>
-                        <option value="Dance">Dance</option>
-                        <option value="Music">Music</option>
-                        <option value="Sports">Sports</option>
-                        <option value="Art & Drawing">Art & Drawing</option>
-                        <option value="Public Speaking">Public Speaking</option>
-                        <option value="Personality Development">Personality Development</option>
-                        <option value="Photography">Photography</option>
-                        <option value="Education / Academic Support">Education / Academic Support</option>
-                        <option value="Career Guidance">Career Guidance</option>
-                        <option value="Fitness & Wellness">Fitness & Wellness</option>
-                        <option value="Social Service">Social Service</option>
-                        <option value="Other">Other</option>
-                    </select>
-                    <input type="text" name="interestedActivitiesOther" id="interestedActivitiesOther" placeholder="Specify if Other" style="display:none;">
-                </div>
-                <div class="form-row">
-                    <textarea name="whyJoin" placeholder="Why do you want to join?" required></textarea>
-                </div>
-                <div class="terms-row">
-                    <input type="checkbox" name="termsAccepted" id="termsAccepted">
-                    <label for="termsAccepted">I have read and agree to the <button type="button" class="terms-link" id="openTermsBtn">Terms &amp; Conditions</button> and Privacy Policy.</label>
-                </div>
-                <button type="submit" class="submit-btn" data-i18n="registerNow">Register Now</button>
-            </form>
+
+            <div class="registration-shell animate-up delay-1">
+                <aside class="photo-panel" aria-label="Passport upload section">
+                    <label for="passportPhotoInput" class="photo-dropzone" id="photoDropzone">
+                        <span class="photo-title-inline">Passport Size Photo</span>
+                        <img id="passportPreview" alt="Passport preview" hidden>
+                        <span class="photo-placeholder-icon"><i class="fa-solid fa-user"></i></span>
+                        <span class="photo-plus">+</span>
+                    </label>
+                    <div class="photo-meta">
+                        <p class="photo-title">Upload Passport Size Photo</p>
+                        <small>JPG, PNG only</small>
+                        <small>Max Size: 2MB</small>
+                    </div>
+                    <label for="passportPhotoInput" class="choose-photo-btn">Choose Photo</label>
+                    <input id="passportPhotoInput" type="file" accept="image/png,image/jpeg" required>
+                </aside>
+
+                <form class="registration-form" id="registrationForm">
+                    <div class="form-row">
+                        <label class="field-wrap">
+                            <span class="field-icon"><i class="fa-solid fa-user"></i></span>
+                            <input type="text" name="fullName" placeholder="Full Name*" required>
+                        </label>
+                        <label class="field-wrap">
+                            <span class="field-icon"><i class="fa-solid fa-calendar-days"></i></span>
+                            <input type="text" name="dobAge" placeholder="Date of Birth / Age" required onfocus="this.type='date'; this.setAttribute('data-has-date','true');" onblur="if(!this.value){ this.type='text'; this.removeAttribute('data-has-date'); }">
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="field-wrap">
+                            <span class="field-icon"><i class="fa-solid fa-venus-mars"></i></span>
+                            <select name="gender" title="Gender" required>
+                                <option value="">Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </label>
+                        <label class="field-wrap">
+                            <span class="field-icon"><i class="fa-brands fa-whatsapp"></i></span>
+                            <input type="tel" name="whatsappNo" placeholder="WhatsApp Number" inputmode="numeric" required>
+                        </label>
+                    </div>
+                    <div class="form-row single-row">
+                        <label class="field-wrap">
+                            <span class="field-icon"><i class="fa-solid fa-envelope"></i></span>
+                            <input type="email" name="emailId" placeholder="Email" required>
+                        </label>
+                    </div>
+                    <div class="form-row single-row">
+                        <label class="field-wrap">
+                            <span class="field-icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <textarea name="fullAddress" placeholder="Full Address*" required></textarea>
+                        </label>
+                    </div>
+                    <div class="form-row education-row">
+                        <label class="field-wrap">
+                            <span class="field-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                            <select name="educationQualification" id="educationQualification" title="Education Qualification">
+                                <option value="">Education Qualification</option>
+                                <option value="10th Pass">10th Pass</option>
+                                <option value="12th Pass">12th Pass</option>
+                                <option value="Diploma">Diploma</option>
+                                <option value="ITI / Vocational Course">ITI / Vocational Course</option>
+                                <option value="Bachelor of Arts (BA)">Bachelor of Arts (BA)</option>
+                                <option value="Bachelor of Science (BSc)">Bachelor of Science (BSc)</option>
+                                <option value="Bachelor of Commerce (BCom)">Bachelor of Commerce (BCom)</option>
+                                <option value="Bachelor of Computer Applications (BCA)">Bachelor of Computer Applications (BCA)</option>
+                                <option value="Bachelor of Engineering (BE / BTech)">Bachelor of Engineering (BE / BTech)</option>
+                                <option value="Bachelor of Pharmacy (BPharm)">Bachelor of Pharmacy (BPharm)</option>
+                                <option value="Bachelor of Business Administration (BBA)">Bachelor of Business Administration (BBA)</option>
+                                <option value="Bachelor of Medicine and Surgery (MBBS)">Bachelor of Medicine and Surgery (MBBS)</option>
+                                <option value="Bachelor of Dental Surgery (BDS)">Bachelor of Dental Surgery (BDS)</option>
+                                <option value="Bachelor of Ayurvedic Medicine (BAMS)">Bachelor of Ayurvedic Medicine (BAMS)</option>
+                                <option value="Bachelor of Homeopathic Medicine (BHMS)">Bachelor of Homeopathic Medicine (BHMS)</option>
+                                <option value="Bachelor of Law (LLB)">Bachelor of Law (LLB)</option>
+                                <option value="Chartered Accountant (CA)">Chartered Accountant (CA)</option>
+                                <option value="Company Secretary (CS)">Company Secretary (CS)</option>
+                                <option value="Master of Arts (MA)">Master of Arts (MA)</option>
+                                <option value="Master of Science (MSc)">Master of Science (MSc)</option>
+                                <option value="Master of Commerce (MCom)">Master of Commerce (MCom)</option>
+                                <option value="Master of Computer Applications (MCA)">Master of Computer Applications (MCA)</option>
+                                <option value="Master of Engineering / Technology (ME / MTech)">Master of Engineering / Technology (ME / MTech)</option>
+                                <option value="Master of Pharmacy (MPharm)">Master of Pharmacy (MPharm)</option>
+                                <option value="Master of Business Administration (MBA)">Master of Business Administration (MBA)</option>
+                                <option value="Post Graduation (General)">Post Graduation (General)</option>
+                                <option value="Doctor of Philosophy (PhD)">Doctor of Philosophy (PhD)</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </label>
+                        <label class="field-wrap">
+                            <span class="field-icon"><i class="fa-solid fa-briefcase"></i></span>
+                            <select name="occupation" title="Occupation" required>
+                                <option value="">Occupation</option>
+                                <option value="Employee — कर्मचारी">Employee — कर्मचारी</option>
+                                <option value="Student — विद्यार्थी">Student — विद्यार्थी</option>
+                                <option value="Unemployed — बेरोज़गार">Unemployed — बेरोज़गार</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="form-row single-row">
+                        <input type="text" name="educationQualificationOther" id="educationQualificationOther" class="optional-field" placeholder="Specify if Other">
+                    </div>
+                    <div class="form-row">
+                        <label class="field-wrap">
+                            <span class="field-icon"><i class="fa-solid fa-star"></i></span>
+                            <select name="interestedActivities" id="interestedActivities" title="Interested Activities" required>
+                                <option value="">Interested Activities*</option>
+                                <option value="Dance">Dance</option>
+                                <option value="Music">Music</option>
+                                <option value="Sports">Sports</option>
+                                <option value="Art & Drawing">Art & Drawing</option>
+                                <option value="Public Speaking">Public Speaking</option>
+                                <option value="Personality Development">Personality Development</option>
+                                <option value="Photography">Photography</option>
+                                <option value="Education / Academic Support">Education / Academic Support</option>
+                                <option value="Career Guidance">Career Guidance</option>
+                                <option value="Fitness & Wellness">Fitness & Wellness</option>
+                                <option value="Social Service">Social Service</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </label>
+                        <input type="text" name="interestedActivitiesOther" id="interestedActivitiesOther" class="optional-field" placeholder="Specify if Other">
+                    </div>
+                    <div class="form-row single-row">
+                        <label class="field-wrap">
+                            <span class="field-icon"><i class="fa-solid fa-comment-dots"></i></span>
+                            <textarea name="whyJoin" placeholder="Why do you want to join?" required></textarea>
+                        </label>
+                    </div>
+                    <div class="terms-row">
+                        <input type="checkbox" name="termsAccepted" id="termsAccepted">
+                        <label for="termsAccepted">I have read and agree to the <button type="button" class="terms-link" id="openTermsBtn">Terms &amp; Conditions</button> and Privacy Policy.</label>
+                    </div>
+                    <button type="submit" class="submit-btn" data-i18n="registerNow">Register Now</button>
+                </form>
+            </div>
         </section>
 
         <div class="terms-modal" id="termsModal">
@@ -331,8 +382,8 @@
                 <p data-i18n="successText">Welcome to your learning journey. Get ready to build amazing skills.</p>
                 <p class="whatsapp-required-note" data-i18n="whatsappRequiredText">Please send your registration details on WhatsApp to complete the process.</p>
                 <button class="btn primary" id="sendWhatsAppBtn" type="button" data-i18n="sendOnWhatsApp">Send on WhatsApp</button>
-                <p class="return-note" data-i18n="returnDownloadText">After sending, return to the website and download your certificate.</p>
-                <button class="btn certificate-btn" id="certificateBtn" type="button" data-i18n="downloadCertificate"><i class="fa-solid fa-download"></i> Download Certificate</button>
+                <p class="return-note" id="returnNote" data-i18n="returnDownloadText">After sending, return to the website and download your certificate.</p>
+                <button class="btn certificate-btn hidden" id="certificateBtn" type="button" data-i18n="downloadCertificate"><i class="fa-solid fa-download"></i> Download Certificate</button>
                 <button class="btn primary" id="homeBtn" data-i18n="goHome">Go to Home</button>
             </div>
         </div>
@@ -658,10 +709,58 @@
         const memberCountStorageKey = 'svbsm-member-count';
         const registrationHistoryStorageKey = 'svbsm-registration-history';
         const whatsappNumber = '918857061397';
+        const remoteCountApiKey = 'svbsm-register-counter';
+        const remoteCountApiBase = 'https://api.countapi.xyz';
         let currentRegistration = null;
         let registeredMemberCount = Math.max(5000, Number(localStorage.getItem(memberCountStorageKey)) || 5000);
 
+        initializeMemberCount();
+
+        async function fetchRemoteMemberCount() {
+            try {
+                const response = await fetch(`${remoteCountApiBase}/get/saavdhan/${remoteCountApiKey}`);
+                if (!response.ok) return null;
+                const data = await response.json();
+                const value = Number(data && data.value);
+                return Number.isFinite(value) ? Math.max(5000, value) : null;
+            } catch (error) {
+                return null;
+            }
+        }
+
+        async function syncRemoteMemberCount() {
+            try {
+                const response = await fetch(`${remoteCountApiBase}/hit/saavdhan/${remoteCountApiKey}`);
+                if (!response.ok) return null;
+                const data = await response.json();
+                const value = Number(data && data.value);
+                if (Number.isFinite(value)) {
+                    registeredMemberCount = Math.max(5000, value);
+                    localStorage.setItem(memberCountStorageKey, String(registeredMemberCount));
+                    updateMemberCount();
+                    return registeredMemberCount;
+                }
+            } catch (error) {
+                console.warn('Remote member count sync failed:', error);
+            }
+            return null;
+        }
+
+        async function initializeMemberCount() {
+            const remoteValue = await fetchRemoteMemberCount();
+            if (remoteValue !== null) {
+                registeredMemberCount = remoteValue;
+            } else {
+                const localValue = Number(localStorage.getItem(memberCountStorageKey));
+                if (Number.isFinite(localValue) && localValue > 0) {
+                    registeredMemberCount = Math.max(5000, localValue);
+                }
+            }
+            updateMemberCount();
+        }
+
         function updateMemberCount() {
+            if (!memberCount) return;
             memberCount.textContent = `${registeredMemberCount.toLocaleString('en-IN')}+`;
         }
 
@@ -685,14 +784,279 @@
             ].join('\n'))].join('\n\n');
 
             const waUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
-            window.open(waUrl, '_blank', 'noopener,noreferrer');
+            window.location.href = waUrl;
         }
 
         const sendWhatsAppBtn = document.getElementById('sendWhatsAppBtn');
+        const returnNote = document.getElementById('returnNote');
+        const passportPhotoInput = document.getElementById('passportPhotoInput');
+        const photoDropzone = document.getElementById('photoDropzone');
+        const passportPreview = document.getElementById('passportPreview');
+        let photoDataUrl = '';
+        let whatsappShareCompleted = false;
+
+        function setCertificateAvailability(visible) {
+            if (!certificateBtn) return;
+            certificateBtn.classList.toggle('hidden', !visible);
+        }
+
+        function validatePhotoFile(file) {
+            if (!file) {
+                return false;
+            }
+            const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+            if (!allowedTypes.includes(file.type)) {
+                alert('Please upload a JPG or PNG image only.');
+                return false;
+            }
+            if (file.size > 2 * 1024 * 1024) {
+                alert('Photo size must be 2MB or less.');
+                return false;
+            }
+            return true;
+        }
+
+        if (passportPhotoInput) {
+            passportPhotoInput.addEventListener('change', function(event) {
+                const file = event.target.files && event.target.files[0];
+                if (!validatePhotoFile(file)) {
+                    passportPhotoInput.value = '';
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function() {
+                    photoDataUrl = reader.result;
+                    passportPreview.src = photoDataUrl;
+                    passportPreview.hidden = false;
+                    photoDropzone.classList.add('has-image');
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function buildRegistrationCardImage(registration) {
+            return new Promise((resolve) => {
+                const canvas = document.createElement('canvas');
+                canvas.width = 1080;
+                canvas.height = 1540;
+                const ctx = canvas.getContext('2d');
+
+                const bgGradient = ctx.createRadialGradient(canvas.width / 2, canvas.height / 2, 100, canvas.width / 2, canvas.height / 2, canvas.width * 0.9);
+                bgGradient.addColorStop(0, '#071c2d');
+                bgGradient.addColorStop(0.46, '#061921');
+                bgGradient.addColorStop(1, '#020b10');
+                ctx.fillStyle = bgGradient;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                const gold = '#f4c66b';
+                const golden = '#e7ae3a';
+                const panelBlue = '#0a1d2c';
+                const freeBlue = '#0d2237';
+                const white = '#edf4ff';
+
+                function drawHeaderText() {
+                    ctx.textAlign = 'center';
+
+                    ctx.fillStyle = '#f4c66b';
+                    ctx.font = '700 42px "Segoe UI", Arial, sans-serif';
+                    ctx.fillText('SATTYA VIJAYATE', canvas.width / 2, 180);
+
+                    ctx.font = '700 38px "Segoe UI", Arial, sans-serif';
+                    ctx.fillText('BAHU UDDESHIYA', canvas.width / 2, 235);
+                    ctx.fillText('SEVA BHAVI MANDAL', canvas.width / 2, 285);
+                    ctx.fillText('(SANSTHA)', canvas.width / 2, 335);
+
+                    ctx.fillStyle = '#f4c66b';
+                    ctx.font = '700 18px "Segoe UI", Arial, sans-serif';
+                    ctx.fillText('EDUCATION', 150, 395);
+                    ctx.fillText('CULTURE', 330, 395);
+                    ctx.fillText('SPORTS', 510, 395);
+                    ctx.fillText('WELLNESS', 690, 395);
+                    ctx.fillText('SOCIAL SERVICE', 910, 395);
+
+                    drawMainBody();
+                }
+
+                function drawMainBody() {
+                    const formX = 90;
+                    const formY = 450;
+                    const formW = 620;
+                    const formH = 420;
+                    const photoX = 740;
+                    const photoY = 450;
+                    const photoW = 260;
+                    const photoH = 290;
+
+                    ctx.fillStyle = '#0c1d2d';
+                    ctx.fillRect(formX, formY, formW, formH);
+
+                    ctx.fillStyle = '#f4c66b';
+                    ctx.textAlign = 'left';
+                    ctx.font = '700 34px "Segoe UI", Arial, sans-serif';
+                    ctx.fillText('REGISTRATION DETAILS', formX + 22, formY + 48);
+
+                    ctx.fillStyle = '#0c1d2d';
+                    ctx.fillRect(photoX, photoY, photoW, photoH);
+
+                    const drawInfoRows = () => {
+                        const infoList = [
+                            ['Full Name', registration.fullName],
+                            ['Date of Birth / Age', registration.dobAge],
+                            ['Gender', registration.gender],
+                            ['WhatsApp Number', registration.whatsappNo],
+                            ['Email', registration.emailId],
+                            ['Address', registration.fullAddress],
+                            ['Education Qualification', registration.educationQualification],
+                            ['Occupation', registration.occupation],
+                            ['Interested Activities', registration.interestedActivities],
+                            ['Why do you want to join?', registration.whyJoin]
+                        ];
+
+                        const labelX = formX + 22;
+                        const valueX = formX + 225;
+                        let currentY = formY + 90;
+
+                        infoList.forEach(([label, value]) => {
+                            ctx.fillStyle = '#f5c66a';
+                            ctx.font = '600 20px "Segoe UI", Arial, sans-serif';
+                            ctx.fillText(`${label}`, labelX, currentY);
+
+                            ctx.fillStyle = '#edf5ff';
+                            ctx.font = '600 20px "Segoe UI", Arial, sans-serif';
+                            const text = String(value || 'Not provided');
+                            const wrapped = wrapText(ctx, text, 330);
+                            wrapped.slice(0, 2).forEach((line, index) => {
+                                ctx.fillText(line, valueX, currentY + 28 + index * 21);
+                            });
+
+                            currentY += 48;
+                        });
+                    };
+
+                    drawInfoRows();
+
+                    ctx.fillStyle = '#0d1d2d';
+                    ctx.fillRect(770, 900, 220, 150);
+
+                    ctx.fillStyle = '#f7ce7c';
+                    ctx.textAlign = 'center';
+                    ctx.font = '700 22px "Segoe UI", Arial, sans-serif';
+                    ctx.fillText('PROUD TO', 880, 965);
+                    ctx.fillText('BE A PART OF', 880, 995);
+                    ctx.fillText('OUR MISSION', 880, 1025);
+
+                    ctx.fillStyle = '#f4c66b';
+                    ctx.font = '700 28px "Segoe UI", Arial, sans-serif';
+                    ctx.fillText('Thank You', canvas.width / 2, 1115);
+                    ctx.font = 'italic 700 22px Georgia, serif';
+                    ctx.fillText('for Joining Our Organization', canvas.width / 2, 1150);
+
+                    ctx.fillStyle = '#0d1d2d';
+                    ctx.fillRect(78, 1185, 924, 160);
+
+                    ctx.fillStyle = '#f4c66b';
+                    ctx.font = '700 38px Georgia, serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('Welcome to Our Organization', canvas.width / 2, 1255);
+
+                    ctx.fillStyle = '#edf5ff';
+                    ctx.font = '600 20px "Segoe UI", Arial, sans-serif';
+                    ctx.fillText('हमारी संस्था से जुड़ें, भारत के लिए नया कुछ करें।', canvas.width / 2, 1295);
+                    ctx.fillText('Stay connected with our organization, and do something new for India.', canvas.width / 2, 1328);
+
+                    ctx.fillStyle = '#f4c66b';
+                    ctx.font = '700 18px "Segoe UI", Arial, sans-serif';
+                    ctx.fillText('TOGETHER WE LEARN', canvas.width / 2, 1475);
+
+                    const imageDraw = () => {
+                        if (!registration.photoDataUrl) return;
+                        const img = new Image();
+                        img.onload = function() {
+                            const innerX = photoX + 16;
+                            const innerY = photoY + 16;
+                            const innerW = photoW - 32;
+                            const innerH = photoH - 32;
+                            const crop = Math.min(img.width, img.height);
+                            const sx = (img.width - crop) / 2;
+                            const sy = (img.height - crop) / 2;
+
+                            ctx.save();
+                            ctx.beginPath();
+                            ctx.roundRect(innerX, innerY, innerW, innerH, 18);
+                            ctx.clip();
+                            ctx.fillStyle = '#e7edf5';
+                            ctx.fillRect(innerX, innerY, innerW, innerH);
+                            ctx.drawImage(img, sx, sy, crop, crop, innerX, innerY, innerW, innerH);
+                            ctx.restore();
+
+                            resolve(canvas);
+                        };
+                        img.onerror = function() {
+                            resolve(canvas);
+                        };
+                        img.src = registration.photoDataUrl;
+                    };
+
+                    imageDraw();
+                }
+
+                drawHeaderText();
+            });
+        }
+
+        function wrapText(context, text, maxWidth) {
+            const words = text.split(' ');
+            const lines = [];
+            let currentLine = words[0] || '';
+
+            for (let i = 1; i < words.length; i += 1) {
+                const testLine = `${currentLine} ${words[i]}`;
+                if (context.measureText(testLine).width <= maxWidth) {
+                    currentLine = testLine;
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            if (currentLine) lines.push(currentLine);
+            return lines.length ? lines : [''];
+        }
+
+        async function shareRegistrationCard() {
+            if (!currentRegistration) return;
+
+            const cardCanvas = await buildRegistrationCardImage(currentRegistration);
+            const cardBlob = await new Promise((resolve) => cardCanvas.toBlob(resolve, 'image/png'));
+            const cardFile = new File([cardBlob], `sanstha-registration-${Date.now()}.png`, { type: 'image/png' });
+
+            if (navigator.share && navigator.canShare && navigator.canShare({ files: [cardFile] })) {
+                try {
+                    await navigator.share({
+                        title: 'Sanstha Registration Details',
+                        text: 'Please see my registration details and photo from the Sanstha registration form.',
+                        files: [cardFile]
+                    });
+                    whatsappShareCompleted = true;
+                    setCertificateAvailability(true);
+                    if (returnNote) returnNote.style.display = 'block';
+                    return;
+                } catch (error) {
+                    console.warn('Native share cancelled or unavailable:', error);
+                }
+            }
+
+            const shareUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hello, I have completed the Sanstha registration. Please open the image below and save it for my registration record.\n\n${currentRegistration.fullName}\n${currentRegistration.whatsappNo}`)}`;
+            window.location.href = shareUrl;
+            whatsappShareCompleted = true;
+            setCertificateAvailability(true);
+            if (returnNote) returnNote.style.display = 'block';
+        }
+
         if (sendWhatsAppBtn) {
             sendWhatsAppBtn.addEventListener('click', function() {
                 if (!currentRegistration) return;
-                openRegistrationHistoryOnWhatsApp(currentRegistration);
+                shareRegistrationCard();
             });
         }
 
@@ -766,6 +1130,12 @@
             const customInterest = String(formData.get('interestedActivitiesOther') || '').trim();
             const interestedActivities = selectedInterest === 'Other' && customInterest ? customInterest : (selectedInterest || 'Not provided');
 
+            const photoFile = passportPhotoInput && passportPhotoInput.files ? passportPhotoInput.files[0] : null;
+            if (!photoFile && !photoDataUrl) {
+                alert('Please upload your passport size photo before submitting the form.');
+                return;
+            }
+
             const data = {
                 fullName: formData.get('fullName'),
                 dobAge: formData.get('dobAge'),
@@ -778,17 +1148,29 @@
                 skillsTalents: 'Not provided',
                 interestedActivities: interestedActivities,
                 whyJoin: formData.get('whyJoin'),
-                termsAccepted: agreed ? 'Accepted' : 'Not accepted'
+                termsAccepted: agreed ? 'Accepted' : 'Not accepted',
+                photoDataUrl: photoDataUrl || ''
             };
 
             registeredMemberCount += 1;
             localStorage.setItem(memberCountStorageKey, String(registeredMemberCount));
             updateMemberCount();
+            syncRemoteMemberCount();
             currentRegistration = data;
+            whatsappShareCompleted = false;
+            setCertificateAvailability(false);
+            if (returnNote) returnNote.style.display = 'none';
 
             showSuccessModal(data);
 
             registrationForm.reset();
+            if (passportPhotoInput) passportPhotoInput.value = '';
+            if (passportPreview) {
+                passportPreview.hidden = true;
+                passportPreview.src = '';
+            }
+            if (photoDropzone) photoDropzone.classList.remove('has-image');
+            // Keep photoDataUrl for the generated WhatsApp registration card until the user shares it.
         });
 
         function showSuccessModal(data) {
@@ -810,7 +1192,8 @@
                 </div>
             `;
 
-            // Show modal with animation
+            setCertificateAvailability(false);
+            if (returnNote) returnNote.style.display = 'none';
             successModal.classList.add('show');
             document.body.classList.add('modal-open');
             document.documentElement.classList.add('modal-open');
@@ -844,64 +1227,16 @@
 
                 const fileName = `${currentRegistration.fullName.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '') || 'student'}-certificate.png`;
                 const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+                const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
                 const dataUrl = canvas.toDataURL('image/png');
 
-                if (isIOS) {
+                if (isIOS || isSafari) {
                     const previewWindow = window.open('', '_blank');
                     if (previewWindow) {
-                        previewWindow.document.write(`<!doctype html>
-                            <html>
-                                <head>
-                                    <meta charset="utf-8" />
-                                    <meta name="viewport" content="width=device-width, initial-scale=1" />
-                                    <title>${fileName}</title>
-                                    <style>
-                                        body {
-                                            margin: 0;
-                                            min-height: 100vh;
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center;
-                                            background: #f5f5f5;
-                                            font-family: Arial, sans-serif;
-                                            text-align: center;
-                                            color: #1b2a41;
-                                            padding: 20px;
-                                            box-sizing: border-box;
-                                        }
-                                        .wrap {
-                                            width: 100%;
-                                            max-width: 520px;
-                                        }
-                                        .message {
-                                            margin: 0 0 16px;
-                                            font-size: 15px;
-                                            line-height: 1.5;
-                                        }
-                                        img {
-                                            width: 100%;
-                                            max-width: 100%;
-                                            height: auto;
-                                            border-radius: 16px;
-                                            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
-                                            display: block;
-                                            background: #fff;
-                                        }
-                                    </style>
-                                </head>
-                                <body>
-                                    <div class="wrap">
-                                        <p class="message">Tap and hold the certificate image, then choose <strong>Save Image</strong> to download it.</p>
-                                        <img src="${dataUrl}" alt="Certificate" />
-                                    </div>
-                                </body>
-                            </html>`);
+                        previewWindow.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Certificate</title><style>body{margin:0;display:flex;align-items:center;justify-content:center;background:#000;min-height:100vh}img{max-width:100vw;max-height:100vh;display:block}</style></head><body><img src="${dataUrl}" alt="Certificate" /></body></html>`);
                         previewWindow.document.close();
-                    } else {
-                        window.location.href = dataUrl;
                     }
-
-                    alert('iPhone Safari blocks direct file downloads. Please tap and hold the certificate image and choose Save Image to download it.');
+                    alert('Safari / iOS cannot force a direct file download here. The certificate has been opened in a new tab for saving.');
                     return;
                 }
 
