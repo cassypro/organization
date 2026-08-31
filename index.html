@@ -992,17 +992,18 @@
                     ctx.lineWidth = 3;
                     ctx.strokeRect(78, 1185, 924, 160);
 
-                    // Welcome title - red
+                    // Welcome title - red, larger and centered
                     ctx.fillStyle = red;
-                    ctx.font = '700 38px Georgia, serif';
+                    ctx.font = '700 44px Georgia, serif';
                     ctx.textAlign = 'center';
-                    ctx.fillText('Welcome to Our Organization', canvas.width / 2, 1255);
+                    ctx.fillText('Welcome to Our Organization', canvas.width / 2, 1245);
 
-                    // Welcome text - black
+                    // Welcome text - bilingual with proper spacing
                     ctx.fillStyle = black;
-                    ctx.font = '600 20px "Segoe UI", Arial, sans-serif';
+                    ctx.font = '600 18px "Segoe UI", Arial, sans-serif';
+                    ctx.textAlign = 'center';
                     ctx.fillText('हमारी संस्था से जुड़ें, भारत के लिए नया कुछ करें।', canvas.width / 2, 1295);
-                    ctx.fillText('Stay connected with our organization, and do something new for India.', canvas.width / 2, 1328);
+                    ctx.fillText('Stay connected with our organization, and do something new for India.', canvas.width / 2, 1325);
 
                     // Footer - red
                     ctx.fillStyle = red;
